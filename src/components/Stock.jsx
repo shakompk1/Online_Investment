@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 import StockElement from '../stockElement';
+import Main from "../Main";
 const StockContainer = styled.div`
     width: 760px;
     margin: 0 auto;
@@ -46,4 +47,4 @@ class Stock extends Component {
 }
 
 
-export default Stock;
+export default Main(Stock);

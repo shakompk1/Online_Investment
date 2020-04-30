@@ -1,22 +1,50 @@
-import React, { Component } from 'react';
-import Header from "./Header/Header";
-import Routing from "./Routing";
-import Balance from "./Balance";
-// import AccountStock from "./AccountStockElement";
-import Counter from "./counterInput";
+import React, {Component} from 'react';
+import {Route} from "react-router-dom";
+import Stock from "./components/Stock";
+import Buy from "./Buy/Buy";
+import BuyHeader from "./Buy/BuyHeader";
+import {buyStock, getUserData} from "./data";
 
 class App extends Component {
-  render() {
-    return (
-      <div>
-        <Header />
-        <Routing/>
-        <Balance amount="568"/>
-        {/* <AccountStock /> */}
-        <Counter />
-      </div>
-    );
-  }
+    state = {
+        balance: 0,
+        stocks: [],
+        companyName: ''
+    }
+
+    componentDidMount() {
+        this.setUserData();
+    }
+
+    buyStock = stock => {
+        buyStock(stock, this.state.balance)
+            .then(() => this.setUserData());
+    }
+
+    getStockData = (companyName, code) => {
+        this.setState({companyName});
+    }
+
+    setUserData = () => {
+        getUserData().then(data => this.setState({
+            balance: data[0].currentBalance.toFixed(2),
+            stocks: data[1],
+        }))
+    }
+
+    render() {
+        const {balance, stocks} = this.state;
+        return (
+            <>
+                <Route path="/account"><h1>Account</h1></Route>
+                <Route path="/stock"><Stock balance={balance} onClick={this.getStockData}/></Route>
+                <Route path="/buy/:code" render={props =>
+                    <Buy {...props.match.params}
+                         content={<BuyHeader name={this.state.companyName}/>}
+                         balance={balance} buy={this.buyStock}/>}
+                />
+            </>);
+    }
 }
 
 export default App;

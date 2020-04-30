@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styled from "styled-components";
 
 import { StockSection, SmallText, NameP, PriceP, PriceSpan, Cont } from './AccountStockElement.js';
 
