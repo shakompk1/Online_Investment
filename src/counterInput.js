@@ -3,13 +3,13 @@ import styled from "styled-components";
 
 const Cont = styled.div`
 display: flex;
-vertical-align: center;
-text-align: center;
+align-items: center;
 font-family: Roboto;
 color: #833AE0;
 `
 
-const InputButton = styled.button `
+const InputButton = styled.button`
+display: block;
 border: none;
 background-color: white;
 width: 50px;
@@ -23,43 +23,49 @@ text-align: center;
 color: #833AE0;
 `
 
-const InputP = styled.p `
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 64px;
-
+const InputP = styled.input`
+display: block;
+border: none;
+background-color: white;
+width: 80px;
 text-align: center;
 
+font-family: Roboto;
+font-size: 64px;
 color: #833AE0;`
 
 
 export default class Counter extends Component {
+
     state = {
-        count: 0
+        value: 0
     }
 
     plus = () => {
-        if (this.state.count >= 0 && this.state.count < 20) {
-            this.setState({ count: this.state.count + 1 })
-        }
+        let { value } = this.state;
+        this.setState({ value: value + 1 })
     }
 
     minus = () => {
-        if (this.state.count > 0 && this.state.count <= 20) {
-            this.setState({ count: this.state.count - 1 })
+        let { value } = this.state;
+        if (value > 0) {
+            this.setState({ value: value - 1 })
         }
     }
 
+    changeAmountHandler = () => {
+        let { value } = this.state;
+        console.log(value);
+    }
+
     render() {
+        let { value } = this.state;
+
         return (
             <Cont>
-                <InputButton onClick={this.minus} > -
-            </InputButton>
-                <InputP> {this.state.count} </InputP>
-                <InputButton onClick={this.plus} > +
-            </InputButton>
+                <InputButton onClick={this.minus} > - </InputButton>
+                <InputP value={value} />
+                <InputButton onClick={this.plus} > + </InputButton>
             </Cont>
         )
     }
