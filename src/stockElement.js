@@ -49,21 +49,22 @@ export default class Stock extends Component {
     defaultProps = {
         Stockcode: 'N/A',
         StockName: 'N/A',
-        StockPcs: 'N/A',
         StockPrice: 'N/A',
-        StockChange: 'N/A',
-        StockChangeRate: 'N/A'
     }
 
 
     render() {
+        let Stockcode = 'NKE';
+        let StockName = 'Nike Inc.';
+        let StockPrice = 12454.00;
         return (
             <StockSection>
-                <CodeP>NKE
-                <NameP > Nike Inc. </NameP>
+                <CodeP> 
+                {Stockcode}
+                    <NameP > {StockName} </NameP>
                 </CodeP>
 
-                <PriceP> 12 454.00 $ </PriceP>
+                <PriceP> {StockPrice} $ </PriceP>
             </StockSection>
         )
     }

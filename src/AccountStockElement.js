@@ -72,7 +72,10 @@ font-family: Roboto;
 font-size: 18px;
 line-height: 10px;
 
-background: #FF2C2C;`
+display: flex;
+align-items: center;
+
+color: #FF2C2C;`
 
 export default class AccountStock extends Component {
 
@@ -85,17 +88,25 @@ export default class AccountStock extends Component {
         StockChangeRate: 'N/A'
     }
 
-
     render() {
+        let Stockcode = 'NKE';
+        let StockName = 'Nike Inc.';
+        let StockPcs = '5 pcs';
+        let StockPrice = 12454.00;
+        let StockChange = -1.9;
+        let StockChangeRate = (StockChange * 100 / StockPrice).toFixed(2);
+
         return (
             <StockSection>
-                <CodeP>NKE </CodeP>
-                <NameP > Nike Inc. </NameP>
-                <PcsP> 5 pcs </PcsP>
-                <PriceP> 12 454.00 $ </PriceP>
-                <Green> ⯅ +1.9$ (-6.27%) </Green>
-                {/* <Red> ⯆  </Red> */}
-
+                <CodeP> {Stockcode} </CodeP>
+                <NameP > {StockName} </NameP>
+                <PcsP> {StockPcs} </PcsP>
+                <PriceP> {StockPrice} $ </PriceP>
+                {
+                    (StockChange > 0) ?
+                        (<Green> ⯅ +{StockChange}$ (+{StockChangeRate}%) </Green>) :
+                        (<Red> ⯆ {StockChange}$ ({StockChangeRate}%) </Red>)
+                }
             </StockSection>
         )
     }
