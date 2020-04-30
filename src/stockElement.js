@@ -5,7 +5,7 @@ import { StockSection, SmallText, NameP, PriceP, Cont } from './AccountStockElem
 
 
 
-export default class Stock extends Component {
+export default class StockElement extends Component {
 
     static defaultProps = {
         symbol: 'N/A',
