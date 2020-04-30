@@ -17,64 +17,48 @@ border-width: 0px 0px 1px 0px;
   }
 `
 
-export const CodeP = styled.p`
+export const Cont = styled.div`
+display: flex`
+
+export const SmallText = styled.p`
 font-family: Space Mono;
 font-size: 12px;
-line-height: 10px;
-padding: 0px 20px;
-/* identical to box height, or 83% */
+padding: 0px 10px;
+width: 80px;
 
 display: flex;
 align-items: center;
 
-color: rgba(0, 0, 0, 0.5);`
+color: rgba(0, 0, 0, 0.5)`
 
 export const NameP = styled.p`
 font-family: Roboto;
 font-size: 22px;
-line-height: 18px;
-padding: 0px 20px;
-/* identical to box height, or 82% */
+width: 300px;
 
 display: flex;
 align-items: center;
 
-color: #000000;`
-
-const PcsP = styled.p`
-font-family: Space Mono;
-font-size: 12px;
-line-height: 10px;
-/* identical to box height, or 83% */
-
-display: flex;
-align-items: center;
-
-color: rgba(0, 0, 0, 0.5);`
+color: #000000`
 
 export const PriceP = styled.p`
 font-family: Roboto;
 font-size: 22px;
-line-height: 18px;
-/* identical to box height, or 82% */
 
 display: flex;
 align-items: center;
 text-align: right;
 
-color: #000000;`
+color: #000000`
 
 const Green = styled.p`
 font-family: Roboto;
 font-size: 18px;
-line-height: 10px;
-/* identical to box height, or 56% */
 
 display: flex;
 align-items: center;
 
-color: #2FC20A;
-`
+color: #2FC20A`
 
 const Red = styled.p`
 font-family: Roboto;
@@ -84,7 +68,7 @@ line-height: 10px;
 display: flex;
 align-items: center;
 
-color: #FF2C2C;`
+color: #FF2C2C`
 
 export default class AccountStock extends Component {
 
@@ -98,14 +82,17 @@ export default class AccountStock extends Component {
     }
 
     render() {
-        const {symbol, name, price, amount, StockChange} = this.props;
+        const { symbol, name, price, amount, StockChange } = this.props;
         let StockChangeRate = (StockChange * 100 / price).toFixed(2);
 
         return (
             <StockSection>
-                <CodeP> {symbol} </CodeP>
-                <NameP > {name} </NameP>
-                <PcsP> {amount} pcs </PcsP>
+                <Cont>
+                    <SmallText> {symbol} </SmallText>
+                    <NameP > {name} </NameP>
+                    <SmallText> {amount} pcs </SmallText>
+                </Cont>
+                
                 <PriceP> {price} $ </PriceP>
                 {
                     (StockChange > 0) ?

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import styled from "styled-components";
 
-import {StockSection, CodeP, NameP, PriceP} from './AccountStockElement.js';
+import { StockSection, SmallText, NameP, PriceP, Cont } from './AccountStockElement.js';
+
+
 
 export default class Stock extends Component {
 
@@ -11,13 +14,13 @@ export default class Stock extends Component {
     }
 
     render() {
-        const {symbol, name, price} = this.props;
+        const { symbol, name, price } = this.props;
         return (
             <StockSection>
-                <CodeP> 
-                {symbol}
+                <Cont>
+                    <SmallText> {symbol} </SmallText>
                     <NameP > {name} </NameP>
-                </CodeP>
+                </Cont>
 
                 <PriceP> {price} $ </PriceP>
             </StockSection>

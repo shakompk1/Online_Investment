@@ -14,6 +14,8 @@ class App extends Component {
         <Balance amount="568"/>
         <AccountStock />
         <Stock />
+        <Stock symbol='FFFF' />
+        <Stock />
       </div>
     );
   }
