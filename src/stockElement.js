@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
 
-const StockSection = styled.div`
-width: 759px;
-height: 84px;
-display: flex;
-vertical-align: center;
-justify-content: space-between;`
+// const StockSection = styled.div`
+// width: 759px;
+// height: 84px;
+// display: flex;
+// vertical-align: center;
+// justify-content: space-between;
+
+// border: 1px dashed #E0E0E0;
+// border-width: 0px 0px 1px 0px;
+// `
+
+import {StockSection} from './AccountStockElement.js'
 
 const CodeP = styled.p`
 font-family: Space Mono;
