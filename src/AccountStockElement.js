@@ -10,6 +10,11 @@ justify-content: space-between;
 
 border: 1px dashed #E0E0E0;
 border-width: 0px 0px 1px 0px;
+
+&:hover {
+    background: rgba(131, 58, 224, 0.05);
+    cursor: pointer;
+  }
 `
 
 export const CodeP = styled.p`
@@ -83,7 +88,7 @@ color: #FF2C2C;`
 
 export default class AccountStock extends Component {
 
-    defaultProps = {
+    static defaultProps = {
         symbol: 'N/A',
         name: 'N/A',
         amount: 'N/A',
@@ -95,8 +100,6 @@ export default class AccountStock extends Component {
     render() {
         const {symbol, name, price, amount, StockChange} = this.props;
         let StockChangeRate = (StockChange * 100 / price).toFixed(2);
-
-        
 
         return (
             <StockSection>

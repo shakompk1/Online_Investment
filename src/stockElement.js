@@ -4,12 +4,11 @@ import {StockSection, CodeP, NameP, PriceP} from './AccountStockElement.js';
 
 export default class Stock extends Component {
 
-    defaultProps = {
+    static defaultProps = {
         symbol: 'N/A',
         name: 'N/A',
         price: 'N/A',
     }
-
 
     render() {
         const {symbol, name, price} = this.props;
