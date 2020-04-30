@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
-import StockElement from '../StockElement';
+import StockElement from '../stockElement';
 const StockContainer = styled.div`
     width: 760px;
     margin: 0 auto;
