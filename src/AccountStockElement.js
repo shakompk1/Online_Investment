@@ -84,28 +84,26 @@ color: #FF2C2C;`
 export default class AccountStock extends Component {
 
     defaultProps = {
-        Stockcode: 'N/A',
-        StockName: 'N/A',
-        StockPcs: 'N/A',
-        StockPrice: 'N/A',
+        symbol: 'N/A',
+        name: 'N/A',
+        amount: 'N/A',
+        price: 'N/A',
         StockChange: 'N/A',
         StockChangeRate: 'N/A'
     }
 
     render() {
-        let Stockcode = 'NKE';
-        let StockName = 'Nike Inc.';
-        let StockPcs = '5 pcs';
-        let StockPrice = 12454.00;
-        let StockChange = -1.9;
-        let StockChangeRate = (StockChange * 100 / StockPrice).toFixed(2);
+        const {symbol, name, price, amount, StockChange} = this.props;
+        let StockChangeRate = (StockChange * 100 / price).toFixed(2);
+
+        
 
         return (
             <StockSection>
-                <CodeP> {Stockcode} </CodeP>
-                <NameP > {StockName} </NameP>
-                <PcsP> {StockPcs} </PcsP>
-                <PriceP> {StockPrice} $ </PriceP>
+                <CodeP> {symbol} </CodeP>
+                <NameP > {name} </NameP>
+                <PcsP> {amount} pcs </PcsP>
+                <PriceP> {price} $ </PriceP>
                 {
                     (StockChange > 0) ?
                         (<Green> ⯅ +{StockChange}$ (+{StockChangeRate}%) </Green>) :

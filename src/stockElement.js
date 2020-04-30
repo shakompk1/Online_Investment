@@ -5,24 +5,22 @@ import {StockSection, CodeP, NameP, PriceP} from './AccountStockElement.js';
 export default class Stock extends Component {
 
     defaultProps = {
-        Stockcode: 'N/A',
-        StockName: 'N/A',
-        StockPrice: 'N/A',
+        symbol: 'N/A',
+        name: 'N/A',
+        price: 'N/A',
     }
 
 
     render() {
-        let Stockcode = 'NKE';
-        let StockName = 'Nike Inc.';
-        let StockPrice = 12454.00;
+        const {symbol, name, price} = this.props;
         return (
             <StockSection>
                 <CodeP> 
-                {Stockcode}
-                    <NameP > {StockName} </NameP>
+                {symbol}
+                    <NameP > {name} </NameP>
                 </CodeP>
 
-                <PriceP> {StockPrice} $ </PriceP>
+                <PriceP> {price} $ </PriceP>
             </StockSection>
         )
     }
