@@ -9,3 +9,17 @@ body {
   padding: 0;
   font-family: Roboto, sans-serif;
 }
+
+.search-svg{
+  width: 40px;
+}
+
+.search-container{
+  position: relative;
+}
+
+.search-svg{
+  position: absolute;
+  left: 20px;
+  top: 12px;
+}
