@@ -20,7 +20,7 @@ export default class StockElement extends Component {
                     <NameP > {name} </NameP>
                 </Cont>
 
-                <PriceP> {price} $ </PriceP>
+                <PriceP>{Math.trunc(price)}. <PriceSpan> {(price%1).toFixed(2)*100} $ </PriceSpan></PriceP>
             </StockSection>
         )
     }
