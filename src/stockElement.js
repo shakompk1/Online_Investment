@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
 
-import { StockSection, SmallText, NameP, PriceP, Cont } from './AccountStockElement.js';
-
-
+import { StockSection, SmallText, NameP, PriceP, PriceSpan, Cont } from './AccountStockElement.js';
 
 export default class StockElement extends Component {
 
     static defaultProps = {
         symbol: 'N/A',
         name: 'N/A',
-        price: 'N/A',
+        price: 44.4,
     }
 
     render() {
