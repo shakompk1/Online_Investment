@@ -1,0 +1,45 @@
+.header {
+  height: 80px;
+  width: 100%;
+  padding: 36px 40px 0;
+  display: flex;
+  justify-content: space-between;
+
+  .navLinks {
+    display: flex;
+    width: 354px;
+    justify-content: space-between;
+
+    .link {
+      width: 173px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: capitalize;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 24px;
+      color: black;
+      transition: all .1s linear;
+      border-bottom: 2px solid white;
+
+      &:hover {
+        border-bottom: 2px solid black;
+        color: #FFDC40;
+      }
+    }
+  }
+
+  .active {
+    color: #833AE0;
+    border-bottom: 2px solid blueviolet;
+  }
+
+  img {
+    height: 25px;
+    width: 97px;
+    align-self: flex-end;
+  }
+}
