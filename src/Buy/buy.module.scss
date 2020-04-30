@@ -1,0 +1,22 @@
+.buyHeader{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  justify-content: center;
+  margin: 25px 0;
+  .link{
+    text-decoration: none;
+    color: #833AE0;
+    font-size: 24px;
+    line-height: 24px;
+    margin-left: 85px;
+  }
+  .name{
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    color: #2FC20A;
+    font-size: 48px;
+    line-height: 24px;
+  }
+}
