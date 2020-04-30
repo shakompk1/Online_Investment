@@ -7,10 +7,14 @@ const Footer = styled.p`
     font-size: 22px;
     font-weight: bold;
     background: #833AE0;
+    position: fixed;
+    top: auto;
+    width: 100%;
+    bottom: 0;
 `;
 
 const Balance1 = styled.p`
-     margin: 50px 27% 0 10%;
+     margin: 10px 27% 0 10%;
 `;
 
 const Balance2 = styled.p`
