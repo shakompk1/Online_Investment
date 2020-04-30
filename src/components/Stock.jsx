@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
+import StockElement from '../StockElement';
 const StockContainer = styled.div`
     width: 760px;
     margin: 0 auto;
@@ -9,8 +10,8 @@ class Stock extends Component {
     state = {
         data: [],
         offset: 0,
-        limit: 20,
-        pages: 5
+        limit: 4,
+        pages: 0
     }
 
     dataFromApi = () => {
@@ -33,10 +34,12 @@ class Stock extends Component {
     render() {
 
         const rows = this.state.data.slice(this.state.offset, this.state.offset + this.state.limit)
-            .map(item => (<tr key={item.symbol}><td>{item.symbol}</td><td>{item.name}</td><td>{item.price}</td></tr>));
+            .map(item => (<StockElement key={item.symbol} symbol={item.symbol} name={item.name} price={item.price}/>));
+            // .map(item => (<tr key={item.symbol}><td>{item.symbol}</td><td>{item.name}</td><td>{item.price}</td></tr>));
 
         return (
             <StockContainer>
+               {rows}
             </StockContainer>
         );
     }

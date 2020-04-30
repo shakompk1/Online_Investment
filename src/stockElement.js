@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {StockSection, CodeP, NameP, PriceP} from './AccountStockElement.js';
 
-export default class Stock extends Component {
+export default class StockElement extends Component {
 
     static defaultProps = {
         symbol: 'N/A',
