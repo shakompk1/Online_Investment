@@ -1,22 +1,51 @@
 import React from "react";
 import Style from './account.module.scss';
-import {Green, Red, StockSection} from "../AccountStockElement";
-import SumOfStocksEl from '../SumOfStocks'
+import {Green, Red} from "../AccountStockElement";
+import {getStockData, getUserData} from "../data";
 
+class AccountHeader extends React.Component{
+    state = {
+        currentInvestment: 1,
+        stocksDifference: 1,
+        differenceRate: 1,
+    }
 
-// изменить функцию на класс
+    componentDidMount() {
+        let currentInvestment = 0;
+        let actualPrices = 0;
+        getUserData()
+            .then(userData => userData[1])
+            .then(stocks => stocks.map(stock => {
+                const {code, purchasePrice, amount} = stock;
+                currentInvestment += purchasePrice / amount;
+                return code;
+            }))
+            .then(codes => Promise.all(codes.map(code => getStockData(code)
+                        .then(data => {actualPrices += data.profile.price})
+                ))
+            )
+            .then(() => {
+                const stocksDifference = (currentInvestment - actualPrices).toFixed(2);
+                const differenceRate = ((stocksDifference * 100) / currentInvestment).toFixed(2);
+                this.setState({
+                    currentInvestment:currentInvestment.toFixed(2),
+                    stocksDifference,
+                    differenceRate
+                })})
+            .catch(() => 'Произошла ошибка во время вычисления разницы!')
+    }
 
-function AccountHeader({price, StockChange}){
-    let StockChangeRate = (StockChange * 100 / price).toFixed(2);
-
-    return <div className={Style.accHeader}>
-        <SumOfStocksEl />
-        {
-            (StockChange > 0) ?
-                (<Green> ⯅ +{StockChange}$ (+{StockChangeRate}%) </Green>) :
-                (<Red> ⯆ {StockChange}$ ({StockChangeRate}%) </Red>)
-        }
-            </div>
+    render() {
+        const {currentInvestment, stocksDifference, differenceRate} = this.state;
+        return <div className={Style.accHeader}>
+            <p className={Style.price}>{currentInvestment}</p>
+            {
+                (differenceRate > 0) ?
+                    (<Green> ⯅ +{stocksDifference}$ (+{differenceRate}%) </Green>) :
+                    (<Red> ⯆ {stocksDifference}$ ({differenceRate}%) </Red>)
+            }
+        </div>
+    }
 }
 
 export default AccountHeader;

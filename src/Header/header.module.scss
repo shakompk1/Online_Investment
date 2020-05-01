@@ -1,5 +1,5 @@
 .header {
-  height: 64px;
+  height: 80px;
   width: 100%;
   padding: 20px 40px 0;
   display: flex;
@@ -9,7 +9,7 @@
     display: flex;
     width: 354px;
     justify-content: space-between;
-
+    padding-top: 15px;
     .link {
       width: 173px;
       height: 44px;
@@ -22,17 +22,16 @@
       font-size: 20px;
       line-height: 24px;
       color: black;
-      transition: all .1s linear;
+      transition: all 0.1s linear;
       border-bottom: 2px solid white;
 
       &:hover {
         border-bottom: 2px solid black;
-        color: #FFDC40;
+        color: #ffdc40;
       }
-      
     }
     .active {
-      color: #833AE0;
+      color: #833ae0;
       border-bottom: 2px solid blueviolet;
     }
   }
@@ -43,13 +42,13 @@
     align-self: flex-end;
   }
 }
-.contentHeader{
+.contentHeader {
   min-height: 30px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.15);
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  // padding: 30px 0;
-  margin-bottom: 35px;
+  padding: 15px 0 20px;
+  // margin-bottom: 35px;
 }

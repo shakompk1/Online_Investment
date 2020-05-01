@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import { Pagination } from "antd";
 import StockElement from '../stockElement';
 import Search from '../Search.jsx';
-import "antd/es/pagination/style/css";
-import { NotFnd, BorderDiv, StockContainer, AignCenterDiv, AlignPaginator } from '../style_components/stockStyleComp.js'
-import styled from 'styled-components'
-import Main from "../Main";
-import {NavLink} from "react-router-dom";
+import { HrLine, NotFnd, BorderDiv, StockContainer, AignCenterDiv, AlignPaginator } from '../style_components/stockStyleComp.js'
+import { NavLink } from "react-router-dom";
+
 
 class Stock extends Component {
     state = {
@@ -51,25 +49,22 @@ class Stock extends Component {
             foundCheck: (elem.length > 0 ? false : true)
         })
     }
-    
+
     render() {
         const count = this.state.pages;
         const rows = this.state.copyData.slice(this.state.offset, this.state.offset + this.state.limit)
-            .map(item => (<NavLink style={{ textDecoration: 'none' }}
-                onClick={() => this.props.onClick(item.name)}
-                key={item.symbol}
-                to={"/buy/" + item.symbol}><BorderDiv key={item.name}><StockElement symbol={item.symbol} name={item.name} price={item.price} /></BorderDiv></NavLink>));
+            .map(item => (<BorderDiv key={item.symbol}><NavLink style={{ textDecoration: 'none' }}
+                to={"/buy/" + item.symbol}><StockElement symbol={item.symbol} name={item.name} price={item.price} /></NavLink></BorderDiv>));
 
         return (
             <>
-                {/* <HrLine /> */}
                 <StockContainer>
                     <AignCenterDiv>
                         <Search onChange={this.searchHndlr} />
                     </AignCenterDiv>
                     {rows}
                     {this.state.foundCheck ? (<NotFnd>Not Found</NotFnd>) : (
-                        <AlignPaginator style={{ position: "absolute", bottom: "24px" }}>
+                        <AlignPaginator style={{ position: "absolute", bottom: "13px" }}>
 
                             <Pagination size="small" total={count} onChange={this.onChangeHnd}
                                 showSizeChanger={false}
@@ -83,4 +78,4 @@ class Stock extends Component {
 }
 
 
-export default Main(Stock);
+export default Stock;

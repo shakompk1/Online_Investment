@@ -14,11 +14,11 @@ class Buy extends React.Component {
     }
 
     add = () => {
-        if(this.state.count < 20)
+        if(this.state.amount < 20)
             this.setState({amount: this.state.amount+1});
     }
     sub = () => {
-        if(this.state.count > 1)
+        if(this.state.amount > 1)
             this.setState({amount: this.state.amount-1});
     }
     render(){

@@ -21,18 +21,25 @@ export const BorderDiv = styled.div`
       }
 `;
 
+export const AccountContainer = styled.div`
+    width: 760px;
+    margin: 0 auto;;
+    min-height: 420px;
+    position: relative;
+    padding-top: 5px;
+`;
+
 export const StockContainer = styled.div`
     width: 760px;
     margin: 0 auto;
-    height: 510px;
-    position: relative;
-    padding-bottmo: 24px;
+    min-height: 530px;
+    padding-top: 35px;
     position: relative;
 `;
 export const AignCenterDiv = styled.div`
     display: flex;
     justify-content: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 `;
 
 export const AlignPaginator = styled.div`
