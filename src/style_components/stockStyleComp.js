@@ -21,11 +21,18 @@ export const BorderDiv = styled.div`
       }
 `;
 
+export const AccountContainer = styled.div`
+    width: 760px;
+    margin: 0 auto;
+    height: 370px;
+    padding-bottmo: 24px;
+    position: relative;
+`;
+
 export const StockContainer = styled.div`
     width: 760px;
     margin: 0 auto;
     height: 510px;
-    position: relative;
     padding-bottmo: 24px;
     position: relative;
 `;
