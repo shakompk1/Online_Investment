@@ -3,12 +3,9 @@ import styled from "styled-components";
 
 export const StockSection = styled.div`
 width: 759px;
-height: 84px;
+height: 85px;
 display: flex;
 justify-content: space-between;
-
-border: 1px dashed #E0E0E0;
-border-width: 0px 0px 1px 0px;
 
 &:hover {
     background: rgba(131, 58, 224, 0.05);
@@ -17,7 +14,8 @@ border-width: 0px 0px 1px 0px;
 `
 
 export const Cont = styled.div`
-display: flex`
+display: flex
+`
 
 export const SmallText = styled.p`
 font-family: Space Mono;
@@ -28,12 +26,14 @@ width: 80px;
 display: flex;
 align-items: center;
 
+margin: 0;  
 color: rgba(0, 0, 0, 0.5)`
 
 export const NameP = styled.p`
 font-family: Roboto;
 font-size: 22px;
-width: 300px;
+// width: 300px;
+margin: 0;
 
 display: flex;
 align-items: center;
@@ -42,12 +42,13 @@ color: #000000`
 
 export const PriceP = styled.p`
 font-family: Roboto;
-font-size: 22px;
+font-size: 30px;
+margin: 0;
 
 // display: flex;
 // align-items: center;
 text-align: right;
-
+padding-right: 35px;
 color: #000000`
 
 export const PriceSpan = styled.span`
@@ -58,6 +59,7 @@ font-family: Roboto;
 font-size: 18px;
 
 display: flex;
+margin: 0;
 align-items: center;
 
 color: #2FC20A`
