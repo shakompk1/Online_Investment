@@ -7,10 +7,6 @@ class Buy extends React.Component {
     state = {
         price: 0,
         amount: 1,
-<<<<<<< HEAD
-        companyName: false, // определить зачем нужен . пока не нужен. попытаться в заголовок закинуть
-=======
->>>>>>> c230c3f8e0cfc62305be3895d48afa86927488fe
     }
     componentDidMount() {
         getStockData(this.props.code)
