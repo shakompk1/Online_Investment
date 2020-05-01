@@ -10,4 +10,3 @@ export default Context => props => {
         <Balance amount={balance}/>
     </>
 }
-

@@ -6,6 +6,7 @@ import BuyHeader from "./Buy/BuyHeader";
 import {buyStock, getStocks, getUserData} from "./data";
 import Header from "./Header/Header";
 import AccountHeader from "./Account/AccountHeader";
+import Account from './components/Account'
 
 
 class App extends Component {
@@ -39,7 +40,7 @@ class App extends Component {
         const {balance} = this.state;
         return (
             <>
-                <Route path="/account"><Header content={<AccountHeader StockChange={21} price={1.21}/>}/></Route>
+                <Route path="/account"><Header content={<AccountHeader StockChange={21} price={1.21}/>}/><Account/></Route>
                 <Route path="/stock"><Stock balance={balance} onClick={this.getStockData}/></Route>
                 <Route path="/buy/:code" render={props =>
                     <Buy {...props.match.params}
