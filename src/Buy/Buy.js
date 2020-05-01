@@ -18,27 +18,12 @@ class Buy extends React.Component {
     }
 
     add = () => {
-<<<<<<< HEAD
-        let amount = this.state.amount;
-        if(amount < 20){
-            amount++;
-            this.setState({amount});
-        }
-    }
-    sub = () => {
-        let amount = this.state.amount;
-        if(amount > 1){
-            amount--;
-            this.setState({amount});
-        }
-=======
         if(this.state.count < 20)
             this.setState({amount: this.state.amount+1});
     }
     sub = () => {
         if(this.state.count > 1)
             this.setState({amount: this.state.amount-1});
->>>>>>> c230c3f8e0cfc62305be3895d48afa86927488fe
     }
     render(){
         const {price, amount} = this.state;
