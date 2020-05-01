@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Pagination } from "antd";
 import StockElement from '../stockElement';
 import Search from '../Search.jsx';
-import { HrLine, NotFnd, BorderDiv, StockContainer, AignCenterDiv, AlignPaginator } from '../style_components/stockStyleComp.js'
+import { NotFnd, BorderDiv, StockContainer, AignCenterDiv, AlignPaginator } from '../style_components/stockStyleComp.js'
 import { NavLink } from "react-router-dom";
 
 
@@ -46,7 +46,7 @@ class Stock extends Component {
         this.setState({
             copyData: elem,
             pages: count,
-            foundCheck: (elem.length > 0 ? false : true)
+            foundCheck: (elem.length <= 0)
         })
     }
 

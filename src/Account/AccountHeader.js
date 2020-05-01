@@ -2,6 +2,14 @@ import React from "react";
 import Style from './account.module.scss';
 import {Green, Red} from "../AccountStockElement";
 import {getStockData, getUserData} from "../data";
+import styled from "styled-components";
+
+export const PriceP = styled.p`
+    font-size: 64px;
+    color: #000000;
+`
+export const PriceSpan = styled.span`
+    font-size: 24px`
 
 class AccountHeader extends React.Component{
     state = {
@@ -38,7 +46,9 @@ class AccountHeader extends React.Component{
     render() {
         const {currentInvestment, stocksDifference, differenceRate} = this.state;
         return <div className={Style.accHeader}>
-            <p className={Style.price}>{currentInvestment}</p>
+                <PriceP>{Math.trunc(currentInvestment)}.
+                    <PriceSpan> {Math.trunc((currentInvestment % 1).toFixed(2) * 100)} $ </PriceSpan>
+                </PriceP>
             {
                 (differenceRate > 0) ?
                     (<Green> ⯅ +{stocksDifference}$ (+{differenceRate}%) </Green>) :
