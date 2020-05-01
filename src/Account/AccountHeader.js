@@ -9,7 +9,7 @@ export const PriceP = styled.p`
     color: #000000;
 `
 export const PriceSpan = styled.span`
-    font-size: 24px`
+    font-size: 36px`
 
 class AccountHeader extends React.Component{
     state = {

@@ -37,6 +37,7 @@ margin: 0;
 
 display: flex;
 align-items: center;
+text-overflow: clip;
 
 color: #000000`
 
@@ -59,8 +60,8 @@ font-family: Roboto;
 font-size: 18px;
 
 display: flex;
-margin: 0;
 align-items: center;
+padding-right: 15px;
 
 color: #2FC20A`
 
@@ -71,6 +72,7 @@ line-height: 10px;
 
 display: flex;
 align-items: center;
+padding-right: 15px;
 
 color: #FF2C2C`
 
