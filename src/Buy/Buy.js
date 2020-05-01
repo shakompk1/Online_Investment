@@ -11,7 +11,6 @@ class Buy extends React.Component {
     }
     componentDidMount() {
         const code = this.props.code;
-        console.log(this.props);
         fetch('https://financialmodelingprep.com/api/v3/company/profile/'+code)
             .then(res => res.json())
             .then(result => {
@@ -42,9 +41,9 @@ class Buy extends React.Component {
         const purchasePrice = price * count;
         const stock = {code: this.props.code, count, purchasePrice}
         return <div className={Style.buyContainer}>
-            <div className={Style.price}>{price}</div>
+            <div className={Style.price}>{price.toFixed(2)}</div>
             <Counter {...counter}/>
-            <div className={Style.amount}>Buy for {purchasePrice}</div>
+            <div className={Style.amount}>Buy for {purchasePrice.toFixed(2)}</div>
             <button onClick={() => this.props.buy(stock)} className={Style.buy}>Buy</button>
         </div>
     }

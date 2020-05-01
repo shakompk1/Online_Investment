@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import styled from 'styled-components'
 import StockElement from '../stockElement';
 import Main from "../Main";
+import {NavLink} from "react-router-dom";
+
 const StockContainer = styled.div`
     width: 760px;
     margin: 0 auto;
@@ -29,18 +31,21 @@ class Stock extends Component {
 
     componentDidMount() {
         this.dataFromApi();
-        console.log('Start')
     }
 
     render() {
-
         const rows = this.state.data.slice(this.state.offset, this.state.offset + this.state.limit)
-            .map(item => (<StockElement key={item.symbol} symbol={item.symbol} name={item.name} price={item.price}/>));
-            // .map(item => (<tr key={item.symbol}><td>{item.symbol}</td><td>{item.name}</td><td>{item.price}</td></tr>));
+            .map(item => (<NavLink style={{textDecoration: 'none'}}
+                                   onClick={() => this.props.onClick(item.name)}
+                                   key={item.symbol}
+                                   to={"/buy/" + item.symbol}><StockElement symbol={item.symbol}
+                                                                           name={item.name}
+                                                                           price={item.price}/></NavLink>));
+        // .map(item => (<tr key={item.symbol}><td>{item.symbol}</td><td>{item.name}</td><td>{item.price}</td></tr>));
 
         return (
             <StockContainer>
-               {rows}
+                {rows}
             </StockContainer>
         );
     }

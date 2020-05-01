@@ -5,6 +5,8 @@ import Buy from "./Buy/Buy";
 import BuyHeader from "./Buy/BuyHeader";
 import {buyStock, getUserData} from "./data";
 
+const data = new Map();
+
 class App extends Component {
     state = {
         balance: 0,
@@ -21,7 +23,7 @@ class App extends Component {
             .then(() => this.setUserData());
     }
 
-    getStockData = (companyName, code) => {
+    getStockData = (companyName) => {
         this.setState({companyName});
     }
 

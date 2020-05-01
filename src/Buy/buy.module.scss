@@ -1,23 +1,30 @@
 .buyHeader{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 33.3%);
   width: 100%;
   justify-content: center;
-  margin: 20px 0;
   .link{
     text-decoration: none;
     color: #833AE0;
     font-size: 24px;
-    line-height: 24px;
     margin-left: 85px;
+    display: flex;
+    align-items: center;
   }
   .name{
+    max-width: 100%;
     display: flex;
     align-self: center;
     justify-self: center;
     color: #2FC20A;
     font-size: 48px;
-    line-height: 24px;
+    span{
+      max-width: 100%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      height: max-content;
+    }
   }
 }
 .buyContainer{
