@@ -4,18 +4,29 @@ import {NavLink} from "react-router-dom";
 import back from '../img/left.png';
 import {getStockData} from "../data";
 
-function BuyHeader({name}) {
-    return <div className={Style.buyHeader}>
-        <NavLink className={Style.link} to="/stock">
-            <img src={back} alt="back"/>
-            <span>Back</span>
-        </NavLink>
-        <p className={Style.name}>
+class BuyHeader extends React.Component{
+    state = {
+        companyName: '',
+    }
+
+    componentDidMount() {
+        getStockData(this.props.name)
+            .then(res => {this.setState({companyName: res.profile.companyName})})
+    }
+
+    render() {
+        return <div className={Style.buyHeader}>
+            <NavLink className={Style.link} to="/stock">
+                <img src={back} alt="back"/>
+                <span>Back</span>
+            </NavLink>
+            <p className={Style.name}>
             <span>
-                Buy {getStockData(name).then(stock => stock.profile.companyName)}
+                Buy {this.state.companyName}
             </span>
-        </p>
-    </div>
+            </p>
+        </div>
+    }
 }
 
 export default BuyHeader;

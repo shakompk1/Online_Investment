@@ -35,7 +35,6 @@ class Stock extends Component {
     render() {
         const rows = this.state.data.slice(this.state.offset, this.state.offset + this.state.limit)
             .map(item => (<NavLink style={{textDecoration: 'none'}}
-                                   onClick={() => this.props.onClick(item.name)}
                                    key={item.symbol}
                                    to={"/buy/" + item.symbol}><StockElement symbol={item.symbol}
                                                                            name={item.name}
