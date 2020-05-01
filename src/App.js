@@ -36,7 +36,7 @@ class App extends Component {
         return (
             <>
                 <Header/>
-                <Route path="/account"><Account/></Route>
+                <Route exact path="/"><Account/></Route>
                 <Route path="/stock"><Stock /></Route>
                 <Route path="/buy/:code" render={props =><Buy {...props.match.params} onClick={this.buyStock}/>}/>
                 <Balance amount={balance}/>
