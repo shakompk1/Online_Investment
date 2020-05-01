@@ -44,8 +44,8 @@ export const PriceP = styled.p`
 font-family: Roboto;
 font-size: 22px;
 
-display: flex;
-align-items: center;
+// display: flex;
+// align-items: center;
 text-align: right;
 
 color: #000000`
