@@ -3,7 +3,6 @@ import { Pagination } from "antd";
 import StockElement from '../stockElement';
 import Search from '../Search.jsx';
 import { HrLine, NotFnd, BorderDiv, StockContainer, AignCenterDiv, AlignPaginator } from '../style_components/stockStyleComp.js'
-import Main from "../Main";
 import { NavLink } from "react-router-dom";
 
 
@@ -55,12 +54,10 @@ class Stock extends Component {
         const count = this.state.pages;
         const rows = this.state.copyData.slice(this.state.offset, this.state.offset + this.state.limit)
             .map(item => (<BorderDiv key={item.symbol}><NavLink style={{ textDecoration: 'none' }}
-                onClick={() => this.props.onClick(item.name)}
                 to={"/buy/" + item.symbol}><StockElement symbol={item.symbol} name={item.name} price={item.price} /></NavLink></BorderDiv>));
 
         return (
             <>
-                {/* <HrLine /> */}
                 <StockContainer>
                     <AignCenterDiv>
                         <Search onChange={this.searchHndlr} />
@@ -81,4 +78,4 @@ class Stock extends Component {
 }
 
 
-export default Main(Stock);
+export default Stock;
