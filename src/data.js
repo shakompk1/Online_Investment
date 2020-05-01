@@ -34,7 +34,7 @@ function buyStock(data, balance) {
         body: JSON.stringify(data),
     })
         .then(res => res.json())
-        .catch(() => 'Ошибка при загрузке данных на сервер');
+        .catch(() => 'Произошла ошибка при загрузке данных на сервер');
 
     const editBalance = fetch('https://5e8da89e22d8cd0016a798db.mockapi.io/users/3', {
         method: 'PUT',
@@ -48,4 +48,11 @@ function buyStock(data, balance) {
 
 }
 
-export {getUserData, buyStock, getStocks};
+function getStockData(code){
+    return fetch('https://financialmodelingprep.com/api/v3/company/profile/'+code)
+        .then(res => res.json())
+        .then(result => result)
+        .catch(() => 'Произошла ошибка во время загрузки данных');
+}
+
+export {getUserData, buyStock, getStocks, getStockData};

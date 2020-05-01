@@ -1,9 +1,12 @@
 import React from "react";
 import Link from "./Link";
+import {Route} from 'react-router-dom'
 import Style from './header.module.scss'
 import logo from '../img/logo.png';
+import AccountHeader from "../Account/AccountHeader";
+import BuyHeader from "../Buy/BuyHeader";
 
-function Header({content}) {
+function Header() {
     return (
         <>
             <div className={Style.header}>
@@ -13,7 +16,10 @@ function Header({content}) {
                 </div>
                 <img src={logo} alt="logo"/>
             </div>
-            <div className={Style.contentHeader}>{content}</div>
+            <div className={Style.contentHeader}>
+                <Route path="/account"><AccountHeader price={1.12} StockChange={546.2}/></Route>
+                <Route path="/buy/:code" render={prop => <BuyHeader name={prop.match.params.code}/>}/>
+            </div>
         </>
     );
 }
