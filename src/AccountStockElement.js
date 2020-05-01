@@ -5,7 +5,6 @@ export const StockSection = styled.div`
 width: 759px;
 height: 84px;
 display: flex;
-vertical-align: center;
 justify-content: space-between;
 
 border: 1px dashed #E0E0E0;
