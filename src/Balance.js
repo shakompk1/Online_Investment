@@ -5,7 +5,6 @@ const Footer = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     color: #FFDC40;
-    padding: 20px;
     font-size: 22px;
     font-weight: bold;
     background: #833AE0;
