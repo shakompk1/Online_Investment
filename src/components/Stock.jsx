@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import styled from 'styled-components'
 import StockElement from '../stockElement';
-import Main from "../Main";
 import {NavLink} from "react-router-dom";
 
 const StockContainer = styled.div`
@@ -52,4 +51,4 @@ class Stock extends Component {
 }
 
 
-export default Main(Stock);
+export default Stock;
