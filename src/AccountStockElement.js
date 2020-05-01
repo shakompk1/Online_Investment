@@ -14,7 +14,7 @@ justify-content: space-between;
 `
 
 export const Cont = styled.div`
-display: flex
+display: flex;
 `
 
 export const SmallText = styled.p`
@@ -32,7 +32,7 @@ color: rgba(0, 0, 0, 0.5)`
 export const NameP = styled.p`
 font-family: Roboto;
 font-size: 22px;
-// width: 300px;
+width: 300px;
 margin: 0;
 
 display: flex;
@@ -95,7 +95,7 @@ export default class AccountStock extends Component {
                     <SmallText> {amount} pcs </SmallText>
                 </Cont>
 
-                <PriceP>{Math.trunc(price)}. <PriceSpan> {(price % 1).toFixed(2) * 100} $ </PriceSpan></PriceP>
+                <PriceP>{Math.trunc(price)}. <PriceSpan> {Math.trunc((price % 1).toFixed(2) * 100)} $ </PriceSpan></PriceP>
                 {
                     (priceDifference > 0) ?
                         (<Green> ⯅ +{priceDifference}$ (+{differenceRate}%) </Green>) :

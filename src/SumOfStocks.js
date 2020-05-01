@@ -6,11 +6,9 @@ import { getUserData, buyStock } from './data.js';
 export const PriceP = styled.p`
 font-family: Roboto;
 font-size: 64px;
-
 display: flex;
 align-items: center;
 text-align: right;
-
 color: #000000`
 
 export const PriceSpan = styled.span`
