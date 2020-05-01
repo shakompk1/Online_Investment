@@ -13,7 +13,6 @@ export default class StockElement extends Component {
     render() {
         const { symbol, name, price } = this.props;
         let priceSplit = String(price).split('.');
-        console.log(priceSplit[0]);
         return (
             <StockSection>
                 <Cont>

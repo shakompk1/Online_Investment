@@ -3,7 +3,7 @@ import {Route} from "react-router-dom";
 import Stock from "./components/Stock";
 import Account from "./components/Account";
 import Buy from "./Buy/Buy";
-import {buyStock, getStocks, getUserData} from "./data";
+import {buyStock, getUserData} from "./data";
 import Header from "./Header/Header";
 import Balance from "./Balance";
 
