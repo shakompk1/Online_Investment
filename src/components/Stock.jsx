@@ -51,7 +51,8 @@ class Stock extends Component {
     }
 
     render() {
-        const count = this.state.pages;
+        // console.log(this.state.pages)
+        const count = this.state.copyData.length;
         const rows = this.state.copyData.slice(this.state.offset, this.state.offset + this.state.limit)
             .map(item => (<BorderDiv key={item.symbol}><NavLink style={{ textDecoration: 'none' }}
                 to={"/buy/" + item.symbol}><StockElement symbol={item.symbol} name={item.name} price={item.price} /></NavLink></BorderDiv>));
