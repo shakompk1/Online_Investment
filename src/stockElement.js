@@ -5,7 +5,7 @@ import styled from "styled-components";
 const SmalNum = styled.span`
 font-size: 20px`;
 
-import { StockSection, SmallText, NameP, PriceP, PriceSpan, Cont } from './AccountStockElement.js';
+// import { StockSection, SmallText, NameP, PriceP, PriceSpan, Cont } from './AccountStockElement.js';
 
 export default class StockElement extends Component {
 

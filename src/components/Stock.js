@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 import { Pagination } from "antd";
 import StockElement from '../stockElement';
 import Search from '../Search.jsx';
-import "antd/dist/antd.css";
+// import "antd/dist/antd.css";
+import "antd/es/pagination/style/css";
 import { HrLine, NotFnd, BorderDiv, StockContainer, AignCenterDiv, AlignPaginator } from '../style_components/stockStyleComp.js'
 import styled from 'styled-components'
 import Main from "../Main";
 import {NavLink} from "react-router-dom";
 
-const StockContainer = styled.div`
-    width: 760px;
-    margin: 0 auto;
-`;
+// const StockContainer = styled.div`
+//     width: 760px;
+//     margin: 0 auto;
+// `;
 
 class Stock extends Component {
     state = {
@@ -68,11 +69,11 @@ class Stock extends Component {
             .map(item => (<NavLink style={{ textDecoration: 'none' }}
                 onClick={() => this.props.onClick(item.name)}
                 key={item.symbol}
-                to={"/buy/" + item.symbol}><BorderDiv key={item.name}><StockElemen symbol={item.symbol} name={item.name} price={item.price} /></BorderDiv></NavLink>));
+                to={"/buy/" + item.symbol}><BorderDiv key={item.name}><StockElement symbol={item.symbol} name={item.name} price={item.price} /></BorderDiv></NavLink>));
 
         return (
             <>
-                <HrLine />
+                {/* <HrLine /> */}
                 <StockContainer>
                     <AignCenterDiv>
                         <Search onChange={this.searchHndlr} />
