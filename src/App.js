@@ -3,15 +3,16 @@ import {Route} from "react-router-dom";
 import Stock from "./components/Stock";
 import Buy from "./Buy/Buy";
 import BuyHeader from "./Buy/BuyHeader";
-import {buyStock, getUserData} from "./data";
+import {buyStock, getStocks, getUserData} from "./data";
+import Header from "./Header/Header";
+import AccountHeader from "./Account/AccountHeader";
 
-const data = new Map();
 
 class App extends Component {
     state = {
         balance: 0,
         stocks: [],
-        companyName: ''
+        companyName: '',
     }
 
     componentDidMount() {
@@ -35,10 +36,10 @@ class App extends Component {
     }
 
     render() {
-        const {balance, stocks} = this.state;
+        const {balance} = this.state;
         return (
             <>
-                <Route path="/account"><h1>Account</h1></Route>
+                <Route path="/account"><Header content={<AccountHeader StockChange={21} price={1.21}/>}/></Route>
                 <Route path="/stock"><Stock balance={balance} onClick={this.getStockData}/></Route>
                 <Route path="/buy/:code" render={props =>
                     <Buy {...props.match.params}
