@@ -1,0 +1,61 @@
+.buyHeader{
+  display: grid;
+  grid-template-columns: repeat(3, 33.3%);
+  width: 100%;
+  justify-content: center;
+  .link{
+    text-decoration: none;
+    color: #833AE0;
+    font-size: 24px;
+    margin-left: 85px;
+    display: flex;
+    align-items: center;
+  }
+  .name{
+    max-width: 100%;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    color: #2FC20A;
+    font-size: 48px;
+    span{
+      max-width: 100%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      height: max-content;
+    }
+  }
+}
+.buyContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .price{
+    font-size: 30px;
+    line-height: 14px;
+    margin: 66px 0 50px 0;
+  }
+  .amount{
+    font-size: 20px;
+    line-height: 14px;
+    margin: 40px 0 40px 0;
+  }
+  .buy{
+    width: 170px;
+    height: 49px;
+    border: 3px solid #833AE0;
+    box-sizing: border-box;
+    border-radius: 49px;
+    background-color: white;
+    color: #833AE0;
+    font-size: 24px;
+    line-height: 24px;
+    cursor: pointer;
+    transition: all .1s linear;
+    &:hover{
+      color: white;
+      background-color: #833AE0;
+    }
+  }
+}

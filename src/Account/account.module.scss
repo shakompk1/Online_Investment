@@ -1,0 +1,21 @@
+.accHeader{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .price{
+    font-size: 64px;
+    height: auto;
+  }
+  .difference{
+    font-size: 18px;
+    line-height: 10px;
+  }
+  .increase{
+    color: #2FC20A;
+  }
+  .decrease{
+    color: #FF2C2C;
+  }
+}

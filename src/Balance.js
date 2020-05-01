@@ -1,31 +1,38 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-const Footer = styled.p`
-    display: flex;
+const Footer = styled.div`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     color: #FFDC40;
+    padding: 20px;
     font-size: 22px;
     font-weight: bold;
     background: #833AE0;
     position: fixed;
-    top: auto;
     width: 100%;
     bottom: 0;
+    height: 67px;
 `;
 
-const Balance1 = styled.p`
-     margin: 10px 27% 0 10%;
+const Name = styled.div`
+     margin-left: 66px;
+     display: flex;
+     align-items: center;
 `;
 
-const Balance2 = styled.p`
+const Amount = styled.div`
     font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 class Balance extends Component {
     render() {
         return <Footer>
-            <Balance1>Balance</Balance1>
-            <Balance2>{this.props.amount} $</Balance2>
+            <Name>Balance:</Name>
+            <Amount>{this.props.amount} $</Amount>
         </Footer>
     }
 }

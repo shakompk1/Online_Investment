@@ -4,6 +4,14 @@ import StockElement from '../stockElement';
 import Search from '../Search.jsx';
 import "antd/dist/antd.css";
 import { HrLine, NotFnd, BorderDiv, StockContainer, AignCenterDiv, AlignPaginator } from '../style_components/stockStyleComp.js'
+import styled from 'styled-components'
+import Main from "../Main";
+import {NavLink} from "react-router-dom";
+
+const StockContainer = styled.div`
+    width: 760px;
+    margin: 0 auto;
+`;
 
 class Stock extends Component {
     state = {
@@ -57,7 +65,10 @@ class Stock extends Component {
     render() {
         const count = this.state.pages;
         const rows = this.state.copyData.slice(this.state.offset, this.state.offset + this.state.limit)
-            .map(item => (<BorderDiv key={item.name} onClick={() => this.testFnction(item.symbol)}><StockElement key={item.symbol} symbol={item.symbol} name={item.name} price={item.price} /></BorderDiv>));
+            .map(item => (<NavLink style={{ textDecoration: 'none' }}
+                onClick={() => this.props.onClick(item.name)}
+                key={item.symbol}
+                to={"/buy/" + item.symbol}><BorderDiv key={item.name}><StockElemen symbol={item.symbol} name={item.name} price={item.price} /></BorderDiv></NavLink>));
 
         return (
             <>
@@ -81,4 +92,5 @@ class Stock extends Component {
     }
 }
 
-export default Stock;
+
+export default Main(Stock);

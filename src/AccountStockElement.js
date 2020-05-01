@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import styled from "styled-components";
 
 export const StockSection = styled.div`
@@ -51,6 +51,9 @@ text-align: right;
 padding-right: 35px;
 color: #000000`
 
+export const PriceSpan = styled.span`
+font-size: 16px`
+
 const Green = styled.p`
 font-family: Roboto;
 font-size: 18px;
@@ -77,24 +80,25 @@ export default class AccountStock extends Component {
         symbol: 'N/A',
         name: 'N/A',
         amount: 'N/A',
-        price: 'N/A',
+        price: 44.4,
         StockChange: 'N/A',
         StockChangeRate: 'N/A'
     }
 
     render() {
-        const { symbol, name, price, amount, StockChange } = this.props;
+        const {symbol, name, price, amount, StockChange} = this.props;
         let StockChangeRate = (StockChange * 100 / price).toFixed(2);
+
 
         return (
             <StockSection>
                 <Cont>
                     <SmallText> {symbol} </SmallText>
-                    <NameP > {name} </NameP>
+                    <NameP> {name} </NameP>
                     <SmallText> {amount} pcs </SmallText>
                 </Cont>
-                
-                <PriceP> {price} $ </PriceP>
+
+                <PriceP>{Math.trunc(price)}. <PriceSpan> {(price % 1).toFixed(2) * 100} $ </PriceSpan></PriceP>
                 {
                     (StockChange > 0) ?
                         (<Green> ⯅ +{StockChange}$ (+{StockChangeRate}%) </Green>) :
@@ -104,3 +108,5 @@ export default class AccountStock extends Component {
         )
     }
 }
+
+export {Green, Red}

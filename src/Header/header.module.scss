@@ -1,7 +1,7 @@
 .header {
-  height: 80px;
+  height: 64px;
   width: 100%;
-  padding: 36px 40px 0;
+  padding: 20px 40px 0;
   display: flex;
   justify-content: space-between;
 
@@ -42,4 +42,14 @@
     width: 97px;
     align-self: flex-end;
   }
+}
+.contentHeader{
+  min-height: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
+  margin-bottom: 35px;
 }
