@@ -1,17 +1,14 @@
+html,
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
+
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Roboto, sans-serif;
-}
-
-.search-svg{
-  width: 40px;
 }
 
 .search-container{
@@ -21,5 +18,5 @@ body {
 .search-svg{
   position: absolute;
   left: 20px;
-  top: 12px;
+  top: 20px;
 }
