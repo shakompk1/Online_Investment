@@ -43,7 +43,7 @@ class App extends Component {
                 <Route path="/stock"><Stock balance={balance} onClick={this.getStockData}/></Route>
                 <Route path="/buy/:code" render={props =>
                     <Buy {...props.match.params}
-                         content={<BuyHeader name={this.state.companyName}/>}
+                         content={<BuyHeader сname={this.state.companyName}/>}
                          balance={balance} buy={this.buyStock}/>}
                 />
             </>);
