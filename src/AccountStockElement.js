@@ -32,7 +32,7 @@ color: rgba(0, 0, 0, 0.5)`
 export const NameP = styled.p`
 font-family: Roboto;
 font-size: 22px;
-width: 300px;
+width: 250px;
 margin: 0;
 
 display: flex;
