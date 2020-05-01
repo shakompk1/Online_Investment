@@ -6,7 +6,7 @@ import Counter from './counterInput';
 class Buy extends React.Component {
     state = {
         price: 0,
-        count: 1,
+        amount: 1,
         companyName: false, // определить зачем нужен . пока не нужен. попытаться в заголовок закинуть
     }
     componentDidMount() {
@@ -22,24 +22,24 @@ class Buy extends React.Component {
     }
 
     add = () => {
-        let count = this.state.count;
-        if(count < 20){
-            count++;
-            this.setState({count});
+        let amount = this.state.amount;
+        if(amount < 20){
+            amount++;
+            this.setState({amount});
         }
     }
     sub = () => {
-        let count = this.state.count;
-        if(count > 1){
-            count--;
-            this.setState({count});
+        let amount = this.state.amount;
+        if(amount > 1){
+            amount--;
+            this.setState({amount});
         }
     }
     render(){
-        const {price, count} = this.state;
-        const counter = {add: this.add, sub: this.sub, value: count};
-        const purchasePrice = price * count;
-        const stock = {code: this.props.code, count, purchasePrice}
+        const {price, amount} = this.state;
+        const counter = {add: this.add, sub: this.sub, value: amount};
+        const purchasePrice = price * amount;
+        const stock = {code: this.props.code, amount, purchasePrice}
         return <div className={Style.buyContainer}>
             <div className={Style.price}>{price.toFixed(2)}</div>
             <Counter {...counter}/>

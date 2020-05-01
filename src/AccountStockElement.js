@@ -85,7 +85,6 @@ export default class AccountStock extends Component {
 
     render() {
         const {symbol, name, price, amount, StockChange} = this.props;
-        let totalPrice = price * amount;
         let StockChangeRate = (StockChange * 100 / price).toFixed(2);
 
 
@@ -97,7 +96,9 @@ export default class AccountStock extends Component {
                     <SmallText> {amount} pcs </SmallText>
                 </Cont>
 
-                <PriceP>{Math.trunc(totalPrice)}. <PriceSpan> {(totalPrice % 1).toFixed(2) * 100} $ </PriceSpan></PriceP>
+                <PriceP>{Math.trunc(price)}. 
+                <PriceSpan> {(price % 1).toFixed(2) * 100} $ </PriceSpan>
+                </PriceP>
                 {
                     (StockChange > 0) ?
                         (<Green> ⯅ +{StockChange}$ (+{StockChangeRate}%) </Green>) :
