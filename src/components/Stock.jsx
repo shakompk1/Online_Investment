@@ -64,7 +64,7 @@ class Stock extends Component {
                     </AignCenterDiv>
                     {rows}
                     {this.state.foundCheck ? (<NotFnd>Not Found</NotFnd>) : (
-                        <AlignPaginator style={{ position: "absolute", bottom: "24px" }}>
+                        <AlignPaginator style={{ position: "absolute", bottom: "13px" }}>
 
                             <Pagination size="small" total={count} onChange={this.onChangeHnd}
                                 showSizeChanger={false}

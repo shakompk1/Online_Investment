@@ -37,7 +37,7 @@ class Account extends Component {
                     <BorderDiv><AccountStock /></BorderDiv>
                     <BorderDiv><AccountStock /></BorderDiv>
                     {this.state.foundCheck ? (<NotFnd>Not Found</NotFnd>) : (
-                        <AlignPaginator style={{ position: "absolute", bottom: "20px" }}>
+                        <AlignPaginator style={{ position: "absolute", bottom: "30px" }}>
                             <Pagination size="small" total={count} onChange={this.onChangeHnd}
                                 showSizeChanger={false}
                                 defaultPageSize={this.state.limit} />
