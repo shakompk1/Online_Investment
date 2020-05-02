@@ -1,24 +1,22 @@
 import React, { Component } from 'react';
 import { Pagination } from "antd";
-import { NotFnd, BorderDiv, AccountContainer, AlignPaginator } from '../../styledComponents/componentsStyle.js'
+import {BorderDiv, AccountContainer, AlignPaginator } from '../../styledComponents/componentsStyle.js'
 import AccountStock from '../../styledComponents/AccountStockElement.js';
 import {getStockData, getUserData} from "../../data";
-import Loading from '../loading/Loading.js';
+import {ListContainer} from "../../styledComponents/componentsStyle";
+import Loading from '../Loading/Loading.js';
 
 
 class Account extends Component {
     state = {
-        data: [],
-        copyData: [],
         offset: 0,
-        limit: 4,
+        limit: 20,
         pages: 1,
         userStocks: [],
-        loading: false
+        loading: true
     }
 
     componentDidMount() {
-        this.setState({ loading: true })
         getUserData()
             .then(userData => {
                 return Promise.all(userData[1].map(stock => {
@@ -39,33 +37,27 @@ class Account extends Component {
             .finally(() => this.setState({ loading: false }))
     }
 
-    onChangeHnd = (evn) => {
+    onChangeHnd = e => {
         this.setState({
-            offset: (evn - 1) * this.state.limit
+            offset: (e - 1) * this.state.limit
         })
     }
 
-
     render() {
-        const count = this.state.userStocks.length;
-        return (
-            <>
-                <AccountContainer>
-                {!this.state.loading ? null : (<Loading />)}
-                    {this.state.userStocks.slice(this.state.offset, this.state.offset + this.state.limit)
-                    .map(stock => {
-                        return <BorderDiv key={stock.id}><AccountStock {...stock}/></BorderDiv>
-                    })}
-                    {this.state.foundCheck ? (<NotFnd>Not Found</NotFnd>) : (
-                        <AlignPaginator style={{ position: "absolute", bottom: "30px" }}>
-                            <Pagination size="small" total={count} onChange={this.onChangeHnd}
-                                showSizeChanger={false}
-                                defaultPageSize={this.state.limit} />
+        const {userStocks, limit, offset, loading} = this.state;
+        const content = userStocks.slice(offset, offset + limit)
+                .map(stock => <BorderDiv key={stock.id}><AccountStock {...stock}/></BorderDiv>);
+        return <AccountContainer>
+                    {!loading ? null : (<Loading />)}
+                    <ListContainer>{content}</ListContainer>
+                        <AlignPaginator style={{marginTop: '25px'}}>
+                            <Pagination size="small"
+                                        total={userStocks.length}
+                                        onChange={this.onChangeHnd}
+                                        showSizeChanger={false}
+                                        defaultPageSize={limit} />
                         </AlignPaginator>
-                    )}
                 </AccountContainer>
-            </>
-        );
     }
 }
 

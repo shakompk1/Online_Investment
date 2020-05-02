@@ -16,16 +16,14 @@ class BuyHeader extends React.Component{
 
     render() {
         return <div className={Style.buyHeader}>
-            <NavLink className={Style.link} to="/stock">
-                <img src={back} alt="back"/>
-                <span>Back</span>
-            </NavLink>
-            <p className={Style.name}>
-            <span>
-                Buy {this.state.companyName}
-            </span>
-            </p>
-        </div>
+                    <NavLink className={Style.link} to="/stock">
+                        <img src={back} alt="back"/>
+                        <span>Back</span>
+                    </NavLink>
+                    <p className={Style.name}>
+                    <span>Buy {this.state.companyName}</span>
+                    </p>
+                </div>
     }
 }
 

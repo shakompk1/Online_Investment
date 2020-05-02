@@ -179,7 +179,7 @@ export const InputButton = styled.button`
     background-color: white;
     width: 50px;
     height: 50px;
-    margin: 0 10px;
+    margin: 0 35px;
     font-weight: 200;
     font-size: 36px;
     line-height: 14px;
@@ -193,3 +193,15 @@ export const InputP = styled.div`
     text-align: center;
     color: #833AE0;
 `;
+
+export const ListContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 340px;
+    ::-webkit-scrollbar{
+      width: 0;
+    }
+    `;

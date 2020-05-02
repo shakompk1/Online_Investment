@@ -2,17 +2,17 @@ import React, {Component} from 'react';
 import {Pagination} from "antd";
 import StockElement from '../styledComponents/stockElement';
 import Search from '../styledComponents/Search.js';
-import {NotFnd, BorderDiv, StockContainer, AlignCenterDiv, AlignPaginator} from '../styledComponents/componentsStyle.js'
+import {ListContainer, NotFnd, BorderDiv, StockContainer, AlignCenterDiv, AlignPaginator} from '../styledComponents/componentsStyle.js'
 import {NavLink} from "react-router-dom";
 import {getStocks} from "../data";
-import Loading from './loading/Loading';
+import Loading from './Loading/Loading';
 
 class Stock extends Component {
     state = {
         data: [],
         copyData: [],
         offset: 0,
-        limit: 4,
+        limit: 20,
         pages: 1,
         loading: false
     }
@@ -33,9 +33,9 @@ class Stock extends Component {
             .catch(console.log)
     }
 
-    onChangeHnd = (evn) => {
+    onChangeHnd = e => {
         this.setState({
-            offset: (evn - 1) * this.state.limit
+            offset: (e - 1) * this.state.limit
         })
     }
 
@@ -51,31 +51,30 @@ class Stock extends Component {
 
     render() {
         const {copyData, offset, limit, foundCheck} = this.state;
-        const count = copyData.length;
         const rows = copyData.slice(offset, offset + limit)
             .map(item => {
                 const {symbol, name, price} = item;
                 return <BorderDiv key={symbol}>
-                    <NavLink style={{textDecoration: 'none'}} to={"/buy/" + symbol}>
-                        <StockElement {...{symbol, name, price}}/>
-                    </NavLink>
-                </BorderDiv>
+                            <NavLink style={{textDecoration: 'none'}} to={"/buy/" + symbol}>
+                                <StockElement {...{symbol, name, price}}/>
+                            </NavLink>
+                        </BorderDiv>
             });
 
         return <StockContainer>
                     {!this.state.loading ? null : (<Loading />)}
-            <AlignCenterDiv>
-                <Search onChange={this.searchHandler} />
-            </AlignCenterDiv>
-            {rows}
-            {foundCheck ? (<NotFnd>Not Found</NotFnd>) : (
-                <AlignPaginator style={{ position: "absolute", bottom: "13px" }}>
-                    <Pagination size="small" total={count} onChange={this.onChangeHnd}
-                                showSizeChanger={false}
-                                defaultPageSize={limit} />
-                </AlignPaginator>
-            )}
-        </StockContainer>
+                    <AlignCenterDiv>
+                        <Search onChange={this.searchHandler} />
+                    </AlignCenterDiv>
+                    <ListContainer>{rows}</ListContainer>
+                    {foundCheck ? (<NotFnd>Not Found</NotFnd>)
+                  : (<AlignPaginator style={{marginTop: '35px'}}>
+                        <Pagination size="small" total={copyData.length} onChange={this.onChangeHnd}
+                                    showSizeChanger={false}
+                                    defaultPageSize={limit} />
+                    </AlignPaginator>
+                    )}
+                </StockContainer>
     }
 }
 
