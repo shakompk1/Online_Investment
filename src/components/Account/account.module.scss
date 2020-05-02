@@ -1,0 +1,18 @@
+.accHeader{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .difference{
+    font-size: 18px;
+    line-height: 10px;
+  }
+  .increase{
+    color: #2FC20A;
+  }
+  .decrease{
+    color: #FF2C2C;
+  }
+}
