@@ -3,6 +3,7 @@ import { Pagination } from "antd";
 import { NotFnd, BorderDiv, AccountContainer, AlignPaginator } from '../../styledComponents/componentsStyle.js'
 import AccountStock from '../../styledComponents/AccountStockElement.js';
 import {getStockData, getUserData} from "../../data";
+import Loading from '../Loading/Loading.js';
 
 
 class Account extends Component {
@@ -13,9 +14,11 @@ class Account extends Component {
         limit: 4,
         pages: 1,
         userStocks: [],
+        loading: false
     }
 
     componentDidMount() {
+        this.setState({ loading: true })
         getUserData()
             .then(userData => {
                 return Promise.all(userData[1].map(stock => {
@@ -33,6 +36,7 @@ class Account extends Component {
                 }))
             })
             .then(userStocks => {this.setState({userStocks})})
+            .finally(() => this.setState({ loading: false }))
     }
 
     onChangeHnd = (evn) => {
@@ -47,6 +51,7 @@ class Account extends Component {
         return (
             <>
                 <AccountContainer>
+                {!this.state.loading ? null : (<Loading />)}
                     {this.state.userStocks.slice(this.state.offset, this.state.offset + this.state.limit)
                     .map(stock => {
                         return <BorderDiv key={stock.id}><AccountStock {...stock}/></BorderDiv>
