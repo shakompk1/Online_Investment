@@ -67,7 +67,7 @@ export const StockListItem = styled.div`
     width: 759px;
     height: 85px;
     display: grid;
-    grid-template-columns: 9.09% 22% 62%;
+    grid-template-columns: 9.09% 62% 22%;
     &:hover {
         background: rgba(131, 58, 224, 0.05);
         cursor: pointer;
