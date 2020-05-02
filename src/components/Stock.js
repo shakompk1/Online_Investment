@@ -5,7 +5,7 @@ import Search from '../styledComponents/Search.js';
 import {NotFnd, BorderDiv, StockContainer, AlignCenterDiv, AlignPaginator} from '../styledComponents/componentsStyle.js'
 import {NavLink} from "react-router-dom";
 import {getStocks} from "../data";
-import Loading from './Loading/Loading';
+import Loading from './loading/Loading';
 
 class Stock extends Component {
     state = {

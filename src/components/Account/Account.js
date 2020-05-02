@@ -3,7 +3,7 @@ import { Pagination } from "antd";
 import { NotFnd, BorderDiv, AccountContainer, AlignPaginator } from '../../styledComponents/componentsStyle.js'
 import AccountStock from '../../styledComponents/AccountStockElement.js';
 import {getStockData, getUserData} from "../../data";
-import Loading from '../Loading/Loading.js';
+import Loading from '../loading/Loading.js';
 
 
 class Account extends Component {
