@@ -5,6 +5,7 @@ import Search from '../styledComponents/Search.js';
 import {NotFnd, BorderDiv, StockContainer, AlignCenterDiv, AlignPaginator} from '../styledComponents/componentsStyle.js'
 import {NavLink} from "react-router-dom";
 import {getStocks} from "../data";
+import Loading from './Loading';
 
 class Stock extends Component {
     state = {
@@ -12,10 +13,12 @@ class Stock extends Component {
         copyData: [],
         offset: 0,
         limit: 4,
-        pages: 1
+        pages: 1,
+        loading: false
     }
 
     componentDidMount() {
+        this.setState({ loading: true })
         getStocks()
             .then(stocks => {
                 const count = Math.ceil(stocks.count / this.state.limit);
@@ -26,6 +29,7 @@ class Stock extends Component {
                     foundCheck: false
                 })
             })
+            .finally(() => this.setState({ loading: false }))
             .catch(console.log)
     }
 
@@ -59,6 +63,7 @@ class Stock extends Component {
             });
 
         return <StockContainer>
+                    {!this.state.loading ? null : (<Loading />)}
             <AlignCenterDiv>
                 <Search onChange={this.searchHandler} />
             </AlignCenterDiv>
