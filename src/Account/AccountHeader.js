@@ -1,21 +1,14 @@
 import React from "react";
 import Style from './account.module.scss';
-import {Green, Red} from "../AccountStockElement";
+import {PriceP, PriceSpan} from "../styledComponents/stockStyleComp";
 import {getStockData, getUserData} from "../data";
-import styled from "styled-components";
-
-export const PriceP = styled.p`
-    font-size: 64px;
-    color: #000000;
-`
-export const PriceSpan = styled.span`
-    font-size: 36px`
+import Difference from "../styledComponents/Difference";
 
 class AccountHeader extends React.Component{
     state = {
-        currentInvestment: 1,
-        stocksDifference: 1,
-        differenceRate: 1,
+        currentInvestment: 0,
+        priceDifference: 0,
+        differenceRate: 0,
     }
 
     componentDidMount() {
@@ -33,27 +26,23 @@ class AccountHeader extends React.Component{
                 ))
             )
             .then(() => {
-                const stocksDifference = (currentInvestment - actualPrices).toFixed(2);
-                const differenceRate = ((stocksDifference * 100) / currentInvestment).toFixed(2);
+                const priceDifference = (currentInvestment - actualPrices).toFixed(2);
+                const differenceRate = ((priceDifference * 100) / currentInvestment).toFixed(2);
                 this.setState({
                     currentInvestment:currentInvestment.toFixed(2),
-                    stocksDifference,
+                    priceDifference,
                     differenceRate
                 })})
             .catch(() => 'Произошла ошибка во время вычисления разницы!')
     }
 
     render() {
-        const {currentInvestment, stocksDifference, differenceRate} = this.state;
+        const {currentInvestment, priceDifference, differenceRate} = this.state;
         return <div className={Style.accHeader}>
                 <PriceP>{Math.trunc(currentInvestment)}.
                     <PriceSpan> {Math.trunc((currentInvestment % 1).toFixed(2) * 100)} $ </PriceSpan>
                 </PriceP>
-            {
-                (differenceRate > 0) ?
-                    (<Green> ⯅ +{stocksDifference}$ (+{differenceRate}%) </Green>) :
-                    (<Red> ⯆ {stocksDifference}$ ({differenceRate}%) </Red>)
-            }
+                <Difference {...{priceDifference, differenceRate}}/>
         </div>
     }
 }

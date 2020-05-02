@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { Pagination } from "antd";
-import { NotFnd, BorderDiv, AccountContainer, AlignPaginator } from '../style_components/stockStyleComp.js'
-import AccountStock from '../AccountStockElement.js';
+import { NotFnd, BorderDiv, AccountContainer, AlignPaginator } from '../styledComponents/stockStyleComp.js'
+import AccountStock from '../styledComponents/AccountStockElement.js';
 import {getStockData, getUserData} from "../data";
 
 
 class Account extends Component {
     state = {
+        data: [],
+        copyData: [],
         offset: 0,
         limit: 4,
+        pages: 1,
         userStocks: [],
     }
 
@@ -29,10 +32,7 @@ class Account extends Component {
                         })
                 }))
             })
-            .then(userStocks => {
-                this.setState({
-                    userStocks: userStocks,
-                })})
+            .then(userStocks => {this.setState({userStocks})})
     }
 
     onChangeHnd = (evn) => {

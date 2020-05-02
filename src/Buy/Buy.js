@@ -1,7 +1,8 @@
 import React from 'react';
 import Style from './buy.module.scss';
-import Counter from './counterInput';
+import Counter from '../styledComponents/counterInput';
 import {getStockData} from "../data";
+import {NavLink} from "react-router-dom";
 
 class Buy extends React.Component {
     state = {
@@ -30,7 +31,9 @@ class Buy extends React.Component {
             <div className={Style.price}>{price.toFixed(2)}</div>
             <Counter {...counter}/>
             <div className={Style.amount}>Buy for {purchasePrice.toFixed(2)}</div>
-            <button onClick={() => this.props.onClick(stock)} className={Style.buy}>Buy</button>
+            <NavLink to="/stock">
+                <button onClick={() => this.props.onClick(stock)} className={Style.buy}>Buy</button>
+            </NavLink>
         </div>
     }
 }

@@ -5,7 +5,7 @@ import Account from "./components/Account";
 import Buy from "./Buy/Buy";
 import {buyStock, getUserData} from "./data";
 import Header from "./Header/Header";
-import Balance from "./Balance";
+import Balance from "./styledComponents/Balance";
 
 
 class App extends Component {

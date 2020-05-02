@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { Pagination } from "antd";
-import StockElement from '../stockElement';
-import Search from '../Search.jsx';
-import { NotFnd, BorderDiv, StockContainer, AignCenterDiv, AlignPaginator } from '../style_components/stockStyleComp.js'
-import { NavLink } from "react-router-dom";
-
+import React, {Component} from 'react';
+import {Pagination} from "antd";
+import StockElement from '../styledComponents/stockElement';
+import Search from '../styledComponents/Search.js';
+import {NotFnd, BorderDiv, StockContainer, AlignCenterDiv, AlignPaginator} from '../styledComponents/stockStyleComp.js'
+import {NavLink} from "react-router-dom";
+import {getStocks} from "../data";
 
 class Stock extends Component {
     state = {
@@ -15,22 +15,18 @@ class Stock extends Component {
         pages: 1
     }
 
-    dataFromApi = () => {
-        fetch('https://financialmodelingprep.com/api/v3/company/stock/list')
-            .then(result => result.json())
-            .then(data => {
-                let count = Math.ceil(data.symbolsList.length / this.state.limit);
+    componentDidMount() {
+        getStocks()
+            .then(stocks => {
+                const count = Math.ceil(stocks.count / this.state.limit);
                 this.setState({
-                    data: data.symbolsList,
-                    copyData: data.symbolsList,
+                    data: stocks.data,
+                    copyData: stocks.data,
                     pages: count,
                     foundCheck: false
                 })
-            });
-    }
-
-    componentDidMount() {
-        this.dataFromApi();
+            })
+            .catch(console.log)
     }
 
     onChangeHnd = (evn) => {
@@ -39,9 +35,8 @@ class Stock extends Component {
         })
     }
 
-    searchHndlr = (evnt) => {
-        let elem = this.state.data.filter(item => (item.symbol.search(new RegExp(evnt.target.value.trim(), 'i')) === 0));
-
+    searchHandler = e => {
+        let elem = this.state.data.filter(item => (item.symbol.search(new RegExp(e.target.value.trim(), 'i')) === 0));
         let count = Math.ceil(elem.length / this.state.limit);
         this.setState({
             copyData: elem,
@@ -51,30 +46,31 @@ class Stock extends Component {
     }
 
     render() {
-        // console.log(this.state.pages)
-        const count = this.state.copyData.length;
-        const rows = this.state.copyData.slice(this.state.offset, this.state.offset + this.state.limit)
-            .map(item => (<BorderDiv key={item.symbol}><NavLink style={{ textDecoration: 'none' }}
-                to={"/buy/" + item.symbol}><StockElement symbol={item.symbol} name={item.name} price={item.price} /></NavLink></BorderDiv>));
+        const {copyData, offset, limit, foundCheck} = this.state;
+        const count = copyData.length;
+        const rows = copyData.slice(offset, offset + limit)
+            .map(item => {
+                const {symbol, name, price} = item;
+                return <BorderDiv key={symbol}>
+                    <NavLink style={{textDecoration: 'none'}} to={"/buy/" + symbol}>
+                        <StockElement {...{symbol, name, price}}/>
+                    </NavLink>
+                </BorderDiv>
+            });
 
-        return (
-            <>
-                <StockContainer>
-                    <AignCenterDiv>
-                        <Search onChange={this.searchHndlr} />
-                    </AignCenterDiv>
-                    {rows}
-                    {this.state.foundCheck ? (<NotFnd>Not Found</NotFnd>) : (
-                        <AlignPaginator style={{ position: "absolute", bottom: "13px" }}>
-
-                            <Pagination size="small" total={count} onChange={this.onChangeHnd}
+        return <StockContainer>
+            <AlignCenterDiv>
+                <Search onChange={this.searchHandler} />
+            </AlignCenterDiv>
+            {rows}
+            {foundCheck ? (<NotFnd>Not Found</NotFnd>) : (
+                <AlignPaginator style={{ position: "absolute", bottom: "13px" }}>
+                    <Pagination size="small" total={count} onChange={this.onChangeHnd}
                                 showSizeChanger={false}
-                                defaultPageSize={this.state.limit} />
-                        </AlignPaginator>
-                    )}
-                </StockContainer>
-            </>
-        );
+                                defaultPageSize={limit} />
+                </AlignPaginator>
+            )}
+        </StockContainer>
     }
 }
 
