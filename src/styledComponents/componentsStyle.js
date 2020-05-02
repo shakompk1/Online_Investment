@@ -61,6 +61,10 @@ export const AccountListItem = styled.div`
         background: rgba(131, 58, 224, 0.05);
         cursor: pointer;
       }
+
+    &:hover p {
+      box-shadow: 0 0 0;
+    }
 `;
 
 export const StockListItem = styled.div`
@@ -82,11 +86,14 @@ export const FtrSmllText = styled.span`
 
 
 export const SmallText = styled.p`
+    height: 100%;
+    box-shadow: -25px 0 20px white;
     font-family: Space Mono;
     font-size: 12px;
     color: rgba(0, 0, 0, 0.5);
-    align-self: center;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 export const NameP = styled.p`
@@ -130,6 +137,14 @@ export const Red = styled.p`
     justify-content: center;
     display: flex;
     color: #FF2C2C
+`;
+
+export const Gray = styled.p`
+    display: flex;
+    font-size: 18px;    
+    align-self: center;
+    justify-content: center;
+    color: #777777
 `;
 
 export const Input = styled.input`

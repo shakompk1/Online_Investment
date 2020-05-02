@@ -42,7 +42,8 @@ class AccountHeader extends React.Component{
                 <PriceP>{Math.trunc(currentInvestment)}.
                     <PriceSpan> {Math.trunc((currentInvestment % 1).toFixed(2) * 100)} $ </PriceSpan>
                 </PriceP>
-                <Difference {...{priceDifference, differenceRate}}/>
+                {priceDifference === 0 ? (<div style={{height: '28px'}}/>) :
+                <Difference {...{priceDifference, differenceRate}}/>}
         </div>
     }
 }

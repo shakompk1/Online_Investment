@@ -1,9 +1,9 @@
 import React from "react";
-import {Green, Red} from "./componentsStyle";
+import { Green, Red, Gray } from "./componentsStyle";
 
 export default props => {
-    const {priceDifference, differenceRate} = props;
+    const { priceDifference, differenceRate } = props;
     return priceDifference > 0 ?
         <Green> ⯅ +{priceDifference}$ (+{differenceRate}%) </Green> : priceDifference < 0 ?
-        <Red> ⯆ {priceDifference}$ ({differenceRate}%) </Red> : <div style={{height: '28px'}}/>
+            <Red> ⯆ {priceDifference}$ ({differenceRate}%) </Red> : <Gray> &#x2022; {"0.00$ (0.00%)"}</Gray>
 }
