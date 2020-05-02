@@ -1,7 +1,7 @@
 import React from 'react';
 import Style from './buy.module.scss';
-import Counter from '../styledComponents/counterInput';
-import {getStockData} from "../data";
+import Counter from '../../styledComponents/counterInput';
+import {getStockData} from "../../data";
 import {NavLink} from "react-router-dom";
 
 class Buy extends React.Component {

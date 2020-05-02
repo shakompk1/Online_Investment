@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Pagination} from "antd";
 import StockElement from '../styledComponents/stockElement';
 import Search from '../styledComponents/Search.js';
-import {NotFnd, BorderDiv, StockContainer, AlignCenterDiv, AlignPaginator} from '../styledComponents/stockStyleComp.js'
+import {NotFnd, BorderDiv, StockContainer, AlignCenterDiv, AlignPaginator} from '../styledComponents/componentsStyle.js'
 import {NavLink} from "react-router-dom";
 import {getStocks} from "../data";
 

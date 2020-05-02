@@ -1,8 +1,8 @@
 import React from "react";
 import Style from './buy.module.scss';
 import {NavLink} from "react-router-dom";
-import back from '../img/left.png';
-import {getStockData} from "../data";
+import back from '../../img/left.png';
+import {getStockData} from "../../data";
 
 class BuyHeader extends React.Component{
     state = {

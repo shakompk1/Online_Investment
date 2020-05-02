@@ -1,7 +1,7 @@
 import React from "react";
 import {NavLink, Route} from 'react-router-dom'
 import Style from './header.module.scss'
-import logo from '../img/logo.png';
+import logo from '../../img/logo.png';
 import AccountHeader from "../Account/AccountHeader";
 import BuyHeader from "../Buy/BuyHeader";
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StockListItem, SmallText, NameP} from './stockStyleComp';
+import { StockListItem, SmallText, NameP} from './componentsStyle';
 import Price from "./Price";
 
 export default props => {

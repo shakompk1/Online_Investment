@@ -1,5 +1,5 @@
 import React from 'react';
-import {Amount, Footer, Name} from "./stockStyleComp";
+import {Amount, Footer, Name} from "../styledComponents/componentsStyle";
 
 export default props => <Footer>
                             <Name>Balance:</Name>

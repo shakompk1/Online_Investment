@@ -1,5 +1,5 @@
 import React from 'react';
-import {Cont, InputButton, InputP} from "./stockStyleComp";
+import {Cont, InputButton, InputP} from "./componentsStyle";
 
 export default props => {
         const {add, sub, value} = props;

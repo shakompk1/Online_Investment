@@ -1,5 +1,5 @@
 import React from 'react';
-import {NameP, SmallText, AccountListItem} from "./stockStyleComp";
+import {NameP, SmallText, AccountListItem} from "./componentsStyle";
 import Price from "./Price";
 import Difference from "./Difference";
 

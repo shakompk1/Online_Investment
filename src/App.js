@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {Route} from "react-router-dom";
 import Stock from "./components/Stock";
-import Account from "./components/Account";
-import Buy from "./Buy/Buy";
+import Account from "./components/Account/Account";
+import Buy from "./components/Buy/Buy";
 import {buyStock, getUserData} from "./data";
-import Header from "./Header/Header";
-import Balance from "./styledComponents/Balance";
+import Header from "./components/Header/Header";
+import Balance from "./components/Footer";
 
 
 class App extends Component {

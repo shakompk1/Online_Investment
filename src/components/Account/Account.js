@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Pagination } from "antd";
-import { NotFnd, BorderDiv, AccountContainer, AlignPaginator } from '../styledComponents/stockStyleComp.js'
-import AccountStock from '../styledComponents/AccountStockElement.js';
-import {getStockData, getUserData} from "../data";
+import { NotFnd, BorderDiv, AccountContainer, AlignPaginator } from '../../styledComponents/componentsStyle.js'
+import AccountStock from '../../styledComponents/AccountStockElement.js';
+import {getStockData, getUserData} from "../../data";
 
 
 class Account extends Component {

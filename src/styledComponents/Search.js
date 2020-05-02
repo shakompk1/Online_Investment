@@ -1,5 +1,5 @@
 import React from 'react';
-import {Input} from "./stockStyleComp";
+import {Input} from "./componentsStyle";
 
 export default props =>
     <div className="search-container">

@@ -1,8 +1,8 @@
 import React from "react";
 import Style from './account.module.scss';
-import {PriceP, PriceSpan} from "../styledComponents/stockStyleComp";
-import {getStockData, getUserData} from "../data";
-import Difference from "../styledComponents/Difference";
+import {PriceP, PriceSpan} from "../../styledComponents/componentsStyle";
+import {getStockData, getUserData} from "../../data";
+import Difference from "../../styledComponents/Difference";
 
 class AccountHeader extends React.Component{
     state = {

@@ -1,5 +1,5 @@
 import React from "react";
-import {Fraction, Integer} from "./stockStyleComp";
+import {Fraction, Integer} from "./componentsStyle";
 
 export default props => {
     const {price} = props;
