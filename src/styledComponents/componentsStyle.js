@@ -74,6 +74,13 @@ export const StockListItem = styled.div`
       }
 `;
 
+export const FtrSmllText = styled.span`
+    font-size: 22px;
+    color: #FFDC40;
+    text-align: center;
+`;
+
+
 export const SmallText = styled.p`
     font-family: Space Mono;
     font-size: 12px;

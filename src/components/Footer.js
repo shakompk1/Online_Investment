@@ -1,7 +1,12 @@
 import React from 'react';
-import {Amount, Footer, Name} from "../styledComponents/componentsStyle";
+import { FtrSmllText, Amount, Footer, Name } from "../styledComponents/componentsStyle";
 
-export default props => <Footer>
-                            <Name>Balance:</Name>
-                            <Amount>{props.amount} $</Amount>
-                        </Footer>
+export default props => {
+    let arrAmount = String(props.amount).split('.');
+    
+
+    return (<Footer>
+        <Name>Balance:</Name>
+        <Amount><span>{arrAmount[0]}<FtrSmllText>.{arrAmount[1]} $</FtrSmllText></span></Amount>
+    </Footer>);
+}
