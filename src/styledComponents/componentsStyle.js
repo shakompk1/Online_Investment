@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
 export const NotFnd = styled.h3`
+    position: absolute;
+    width: 100%;
+    top: 135px;
     font-size: 22px;
-    margin-top: 45px;
     text-align: center;
     font-weight: normal;
 `;

@@ -67,6 +67,7 @@ class Stock extends Component {
                         <Search onChange={this.searchHandler} />
                     </AlignCenterDiv>
                     <ListContainer>{rows}</ListContainer>
+                    
                     {foundCheck ? (<NotFnd>Not Found</NotFnd>)
                   : (<AlignPaginator style={{marginTop: '35px'}}>
                         <Pagination size="small" total={copyData.length} onChange={this.onChangeHnd}
