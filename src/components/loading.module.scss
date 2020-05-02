@@ -1,0 +1,24 @@
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 90%;
+    width: 100%;
+
+    .loadinElement {
+        width: 120px;
+        height: 120px;
+        animation: spin 3s linear infinite;
+
+        img {
+            width: 100%;
+            opacity: 0.4;
+        }
+    }
+
+    @keyframes spin {
+        0% {transform: rotate(0deg);}
+        100% {transform: rotate(360deg);}
+    }
+}

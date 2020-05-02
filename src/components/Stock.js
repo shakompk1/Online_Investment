@@ -4,6 +4,9 @@ import StockElement from '../stockElement';
 import Search from '../Search.jsx';
 import { HrLine, NotFnd, BorderDiv, StockContainer, AignCenterDiv, AlignPaginator } from '../style_components/stockStyleComp.js'
 import { NavLink } from "react-router-dom";
+import Loading from './Loading';
+
+
 
 
 class Stock extends Component {
@@ -12,10 +15,12 @@ class Stock extends Component {
         copyData: [],
         offset: 0,
         limit: 4,
-        pages: 1
+        pages: 1,
+        loading: false
     }
 
     dataFromApi = () => {
+        this.setState({ loading: true })
         fetch('https://financialmodelingprep.com/api/v3/company/stock/list')
             .then(result => result.json())
             .then(data => {
@@ -26,7 +31,8 @@ class Stock extends Component {
                     pages: count,
                     foundCheck: false
                 })
-            });
+            })
+            .finally(() => this.setState({ loading: false }));
     }
 
     componentDidMount() {
@@ -59,6 +65,7 @@ class Stock extends Component {
         return (
             <>
                 <StockContainer>
+                    {!this.state.loading ? null : (<Loading />)}
                     <AignCenterDiv>
                         <Search onChange={this.searchHndlr} />
                     </AignCenterDiv>
