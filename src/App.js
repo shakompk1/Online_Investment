@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {Route} from "react-router-dom";
 import Stock from "./components/Stock";
-import Account from "./components/Account";
-import Buy from "./Buy/Buy";
-import {buyStock, getStocks, getUserData} from "./data";
-import Header from "./Header/Header";
-import Balance from "./Balance";
+import Account from "./components/Account/Account";
+import Buy from "./components/Buy/Buy";
+import {buyStock, getUserData} from "./data";
+import Header from "./components/Header/Header";
+import Balance from "./components/Footer";
 
 
 class App extends Component {
@@ -36,7 +36,7 @@ class App extends Component {
         return (
             <>
                 <Header/>
-                <Route path="/account"><Account/></Route>
+                <Route exact path="/"><Account/></Route>
                 <Route path="/stock"><Stock /></Route>
                 <Route path="/buy/:code" render={props =><Buy {...props.match.params} onClick={this.buyStock}/>}/>
                 <Balance amount={balance}/>

@@ -3,6 +3,7 @@
   grid-template-columns: repeat(3, 33.3%);
   width: 100%;
   justify-content: center;
+  margin: 15px 0;
   .link{
     text-decoration: none;
     color: #833AE0;
@@ -40,6 +41,9 @@
     font-size: 20px;
     line-height: 14px;
     margin: 40px 0 40px 0;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
   }
   .buy{
     width: 170px;

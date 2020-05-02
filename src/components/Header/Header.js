@@ -1,8 +1,7 @@
 import React from "react";
-import Link from "./Link";
-import {Route} from 'react-router-dom'
+import {NavLink, Route} from 'react-router-dom'
 import Style from './header.module.scss'
-import logo from '../img/logo.png';
+import logo from '../../img/logo.png';
 import AccountHeader from "../Account/AccountHeader";
 import BuyHeader from "../Buy/BuyHeader";
 
@@ -11,13 +10,13 @@ function Header() {
         <>
             <div className={Style.header}>
                 <div className={Style.navLinks}>
-                    <Link link="account"/>
-                    <Link link="stock"/>
+                    <NavLink activeClassName={Style.active} className={Style.link} exact to='/'>Account</NavLink>
+                    <NavLink activeClassName={Style.active} className={Style.link} to='/stock'>Stock</NavLink>
                 </div>
                 <img src={logo} alt="logo"/>
             </div>
             <div className={Style.contentHeader}>
-                <Route path="/account"><AccountHeader price={1.12} StockChange={546.2}/></Route>
+                <Route exact path="/"><AccountHeader/></Route>
                 <Route path="/buy/:code" render={prop => <BuyHeader name={prop.match.params.code}/>}/>
             </div>
         </>

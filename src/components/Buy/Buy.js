@@ -1,7 +1,9 @@
 import React from 'react';
 import Style from './buy.module.scss';
-import Counter from './counterInput';
-import {getStockData} from "../data";
+import Counter from '../../styledComponents/counterInput';
+import {getStockData} from "../../data";
+import {NavLink} from "react-router-dom";
+import Price from "../../styledComponents/Price";
 
 class Buy extends React.Component {
     state = {
@@ -27,11 +29,15 @@ class Buy extends React.Component {
         const purchasePrice = price * amount;
         const stock = {code: this.props.code, amount, purchasePrice}
         return <div className={Style.buyContainer}>
-            <div className={Style.price}>{price.toFixed(2)}</div>
-            <Counter {...counter}/>
-            <div className={Style.amount}>Buy for {purchasePrice.toFixed(2)}</div>
-            <button onClick={() => this.props.onClick(stock)} className={Style.buy}>Buy</button>
-        </div>
+                    <div className={Style.price}><Price price={price}/></div>
+                    <Counter {...counter}/>
+                    <div className={Style.amount}>
+                        Buy for &nbsp; <Price price={purchasePrice.toFixed(2)}/>
+                    </div>
+                    <NavLink to="/stock">
+                        <button onClick={() => this.props.onClick(stock)} className={Style.buy}>Buy</button>
+                    </NavLink>
+                </div>
     }
 }
 

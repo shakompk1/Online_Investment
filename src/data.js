@@ -55,4 +55,19 @@ function getStockData(code){
         .catch(() => 'Произошла ошибка во время загрузки данных');
 }
 
-export {getUserData, buyStock, getStocks, getStockData};
+function deleteData(){
+    return fetch('https://5e8da89e22d8cd0016a798db.mockapi.io/users/3/stocks')
+        .then(res => res.json())
+        .then(result => result)
+        .then(stocks => Promise.all(stocks.map(stock => {
+            return fetch('https://5e8da89e22d8cd0016a798db.mockapi.io/users/3/stocks/'+stock.id, {
+                method: 'DELETE',
+                headers: {
+                    'Content-type':'application/json'
+                }
+            })
+                .then(res => res.json())
+        }))).then(res => res)
+}
+
+export {getUserData, buyStock, getStocks, getStockData, deleteData};

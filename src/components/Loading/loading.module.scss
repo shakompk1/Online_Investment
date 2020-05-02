@@ -1,0 +1,17 @@
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 90%;
+    width: 100%;
+
+    .loadingElement {
+        width: 80px;
+        height: 80px;
+        img {
+            width: 100%;
+            opacity: 0.4;
+        }
+    }
+}
