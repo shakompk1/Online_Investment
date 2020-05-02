@@ -18,11 +18,11 @@ class AccountHeader extends React.Component{
             .then(userData => userData[1])
             .then(stocks => stocks.map(stock => {
                 const {code, purchasePrice, amount} = stock;
-                currentInvestment += purchasePrice / amount;
-                return code;
+                currentInvestment += purchasePrice;
+                return {code,amount};
             }))
-            .then(codes => Promise.all(codes.map(code => getStockData(code)
-                        .then(data => {actualPrices += data.profile.price})
+            .then(stocks => Promise.all(stocks.map(stock => getStockData(stock.code)
+                        .then(data => {actualPrices += data.profile.price * stock.amount})
                 ))
             )
             .then(() => {

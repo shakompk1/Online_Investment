@@ -201,7 +201,7 @@ export const ListContainer = styled.div`
     flex-direction: column;
     flex-wrap: nowrap;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 340px;
     ::-webkit-scrollbar-track
     {

@@ -4,12 +4,12 @@ import Price from "./Price";
 import Difference from "./Difference";
 
 export default props => {
-    const {code, companyName, price, amount, priceDifference, differenceRate} = props;
+    const {code, companyName, purchasePrice, amount, priceDifference, differenceRate} = props;
     return <AccountListItem>
                 <SmallText> {code} </SmallText>
                 <NameP> {companyName} </NameP>
                 <SmallText> {amount} pcs </SmallText>
-                <Price price={price} />
+                <Price price={purchasePrice} />
                 <Difference {...{priceDifference, differenceRate}} />
             </AccountListItem>
 }
