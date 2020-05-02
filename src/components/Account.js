@@ -7,11 +7,8 @@ import {getStockData, getUserData} from "../data";
 
 class Account extends Component {
     state = {
-        data: [],
-        copyData: [],
         offset: 0,
         limit: 4,
-        pages: 1,
         userStocks: [],
     }
 
@@ -27,11 +24,15 @@ class Account extends Component {
                             const differenceRate = (priceDifference * 100) / (purchasePrice/amount);
                             stock.priceDifference = priceDifference.toFixed(2);
                             stock.differenceRate = differenceRate.toFixed(2);
+
                             return stock;
                         })
                 }))
             })
-            .then(userStocks => {this.setState({userStocks})})
+            .then(userStocks => {
+                this.setState({
+                    userStocks: userStocks,
+                })})
     }
 
     onChangeHnd = (evn) => {
@@ -42,18 +43,12 @@ class Account extends Component {
 
 
     render() {
-        const count = this.state.pages;
-        // const rows = this.state.copyData.slice(this.state.offset, this.state.offset + this.state.limit)
-        //     .map(item => (<BorderDiv><NavLink style={{ textDecoration: 'none' }}
-        //         onClick={() => this.props.onClick(item.name)}
-        //         key={item.symbol}
-        //         to={"/buy/" + item.symbol}><StockElement symbol={item.symbol} name={item.name} price={item.price} /></NavLink></BorderDiv>));
-
+        const count = this.state.userStocks.length;
         return (
             <>
                 <AccountContainer>
-                    {/* {rows} */}
-                    {this.state.userStocks.map(stock => {
+                    {this.state.userStocks.slice(this.state.offset, this.state.offset + this.state.limit)
+                    .map(stock => {
                         return <BorderDiv key={stock.id}><AccountStock {...stock}/></BorderDiv>
                     })}
                     {this.state.foundCheck ? (<NotFnd>Not Found</NotFnd>) : (
