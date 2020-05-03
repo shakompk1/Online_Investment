@@ -2,12 +2,7 @@
 function getStocks(){
     return fetch('https://financialmodelingprep.com/api/v3/company/stock/list')
         .then(res => res.json())
-        .then(result => {
-            return {
-                data: result.symbolsList,
-                count: result.symbolsList.length
-            }
-        })
+        .then(result => result.symbolsList)
         .catch(() => 'Произошла ошибка во время загрузки данных!');
 }
 

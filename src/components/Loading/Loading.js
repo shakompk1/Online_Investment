@@ -1,6 +1,6 @@
 import React from 'react';
 import Style from './loading.module.scss';
-import LoadLogo from '../../img/loading-gif.gif';
+import LoadLogo from '../../img/loading.gif';
 
 export default () => <div className={Style.loadingContainer}>
                         <div className={Style.loadingElement}>

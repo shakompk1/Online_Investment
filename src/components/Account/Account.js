@@ -6,12 +6,10 @@ import {getStockData, getUserData} from "../../data";
 import {ListContainer} from "../../styledComponents/componentsStyle";
 import Loading from '../Loading/Loading.js';
 
-
 class Account extends Component {
     state = {
         offset: 0,
         limit: 20,
-        pages: 1,
         userStocks: [],
         loading: true
     }
@@ -35,6 +33,7 @@ class Account extends Component {
                 }))
             })
             .then(userStocks => {this.setState({userStocks})})
+            .catch(console.log)
             .finally(() => this.setState({ loading: false }))
     }
 
@@ -50,7 +49,7 @@ class Account extends Component {
         const content = userStocks.slice(offset, offset + limit)
                 .map(stock => <BorderDiv key={stock.id}><AccountStock {...stock}/></BorderDiv>);
         return <AccountContainer>
-                    {!loading ? null : (<Loading />)}
+                    {loading && <Loading />}
                     <ListContainer>{content}</ListContainer>
                         <AlignPaginator style={{marginTop: '25px'}}>
                             <Pagination size="small"
