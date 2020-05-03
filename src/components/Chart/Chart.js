@@ -101,17 +101,7 @@ export default class ChartComp extends Component {
                             easing: 'linear',
                             duration: 500,
                           },
-                          enableInteractivity: false,
                     }}
-                    chartEvents={[
-                        {
-                          eventName: 'animationfinish',
-                          callback: () => {
-                            console.log('Animation Finished')
-                          },
-                        },
-                      ]}
-                      rootProps={{ 'data-testid': '2' }}
                 />
             </div>
         );
