@@ -20,7 +20,7 @@ export default class ChartComp extends Component {
         startDate: new Date("2019/01/01"),
         endDate: new Date()
     }
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         this.setState({
             symbl: this.props.symbol
         })
@@ -73,6 +73,7 @@ export default class ChartComp extends Component {
         console.log("second " + this.state.startDate);
 
         const newData = this.state.data.map(item => ([item.date, item.vwap]));
+        console.log(newData);
         newData.unshift(['Year', this.state.symbl]);
         return (
             <div style={{ maxWidth: 900, margin: "0 auto" }}>
