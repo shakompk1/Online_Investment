@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'; // see https://styled-components.com/ for more info
 
 export const NotFnd = styled.h3`
     position: absolute;

@@ -34,7 +34,7 @@ class Account extends Component {
             })
             .then(userStocks => {this.setState({userStocks})})
             .catch(console.log)
-            .finally(() => this.setState({ loading: false }))
+            .finally(() => this.setState({ loading: false })) // see https://learn.javascript.ru/try-catch for more info
     }
 
     // changing current page

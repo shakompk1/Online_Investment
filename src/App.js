@@ -1,7 +1,7 @@
 // the main script running from start page
 
 import React, {Component} from 'react';
-import {Route} from "react-router-dom";
+import {Route} from "react-router-dom"; // to get more information about "react-router-dom" see https://reacttraining.com/react-router/web/guides/quick-start 
 import Stock from "./components/Stock";
 import Account from "./components/Account/Account";
 import Buy from "./components/Buy/Buy";
