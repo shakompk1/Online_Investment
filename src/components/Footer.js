@@ -1,3 +1,5 @@
+// "Footer" is named as "Balance" in App
+
 import React from 'react';
 import { FtrSmllText, Amount, Footer, Name } from "../styledComponents/componentsStyle";
 

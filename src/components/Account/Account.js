@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Pagination } from "antd";
+import { Pagination } from "antd"; // see https://ant.design/components/pagination/#header too learn more
 import {BorderDiv, AccountContainer, AlignPaginator } from '../../styledComponents/componentsStyle.js'
 import AccountStock from '../../styledComponents/AccountStockElement.js';
 import {getStockData, getUserData} from "../../data";
@@ -20,6 +20,7 @@ class Account extends Component {
         getUserData()
             .then(userData => {
                 return Promise.all(userData[1].map(stock => {
+                    // update data about actual stock prices
                     return getStockData(stock.code).then(stockData => {
                             stock.companyName = stockData.profile.companyName;
                             stock.price = stockData.profile.price;
@@ -37,6 +38,7 @@ class Account extends Component {
             .finally(() => this.setState({ loading: false }))
     }
 
+    // changing current page
     onChangeHnd = e => {
         this.setState({
             offset: (e - 1) * this.state.limit

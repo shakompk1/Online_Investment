@@ -1,3 +1,5 @@
+// the main script running from start page
+
 import React, {Component} from 'react';
 import {Route} from "react-router-dom";
 import Stock from "./components/Stock";

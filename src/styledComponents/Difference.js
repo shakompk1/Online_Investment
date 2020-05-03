@@ -1,6 +1,8 @@
 import React from "react";
 import { Green, Red, Gray } from "./componentsStyle";
 
+
+// see https://ru.react.js.org/docs/components-and-props.html for more information
 export default props => {
     const { priceDifference, differenceRate } = props;
     return priceDifference > 0 ?
