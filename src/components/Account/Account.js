@@ -34,6 +34,7 @@ class Account extends Component {
                 }))
             })
             .then(userStocks => {this.setState({userStocks})})
+            .catch(() => alert('Try Again'))
             .finally(() => this.setState({ loading: false }))
     }
 

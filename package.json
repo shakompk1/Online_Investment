@@ -7,9 +7,12 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "antd": "^4.2.0",
+    "dayjs": "^1.8.26",
     "node-sass": "^4.14.0",
     "react": "^16.13.1",
+    "react-datepicker": "^2.14.1",
     "react-dom": "^16.13.1",
+    "react-google-charts": "^3.0.15",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.0"

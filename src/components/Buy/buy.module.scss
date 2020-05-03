@@ -29,6 +29,25 @@
       overflow: hidden;
       height: max-content;
     }
+
+  }
+
+  .popupBack {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #7777777e;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .cahartImgDiv {
+    display: flex;
+    align-items: center;
+    height: 100%;
   }
 }
 .buyContainer{
