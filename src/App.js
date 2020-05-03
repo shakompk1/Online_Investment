@@ -11,7 +11,6 @@ import Balance from "./components/Footer";
 class App extends Component {
     state = {
         balance: 0,
-        stocks: [],
     }
 
     componentDidMount() {
@@ -24,24 +23,21 @@ class App extends Component {
     }
 
     setUserData = () => {
-        getUserData().then(data => this.setState({
+        getUserData()
+            .then(data => this.setState({
             balance: data[0].currentBalance.toFixed(2),
-            stocks: data[1],
         }))
-            .catch(err => console.log(err))
+            .catch(console.log)
     }
 
-    render() {
-        const {balance} = this.state;
-        return (
-            <>
-                <Header/>
-                <Route exact path="/"><Account/></Route>
-                <Route path="/stock"><Stock /></Route>
-                <Route path="/buy/:code" render={props =><Buy {...props.match.params} onClick={this.buyStock}/>}/>
-                <Balance amount={balance}/>
-            </>);
-    }
+    render = () =>
+    <>
+        <Header/>
+        <Route exact path="/"><Account/></Route>
+        <Route path="/stock"><Stock /></Route>
+        <Route path="/buy/:code" render={props =><Buy {...props.match.params} onClick={this.buyStock}/>}/>
+        <Balance amount={this.state.balance}/>
+    </>
 }
 
 export default App;

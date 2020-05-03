@@ -21,7 +21,7 @@ class BuyHeader extends React.Component{
                         <span>Back</span>
                     </NavLink>
                     <p className={Style.name}>
-                    <span>Buy {this.state.companyName}</span>
+                        <span>Buy {this.state.companyName}</span>
                     </p>
                 </div>
     }
