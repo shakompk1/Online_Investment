@@ -6,7 +6,6 @@ import Buy from "./components/Buy/Buy";
 import {buyStock, getUserData} from "./data";
 import Header from "./components/Header/Header";
 import Balance from "./components/Footer";
-import TestChart from "./components/Chart/Chart";
 
 
 class App extends Component {
@@ -39,7 +38,6 @@ class App extends Component {
                 <Header/>
                 <Route exact path="/"><Account/></Route>
                 <Route path="/stock"><Stock /></Route>
-                {/* <Route path="/stock"><TestChart /></Route> */}
                 <Route path="/buy/:code" render={props =><Buy {...props.match.params} onClick={this.buyStock}/>}/>
                 <Balance amount={balance}/>
             </>);

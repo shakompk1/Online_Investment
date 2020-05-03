@@ -8,10 +8,6 @@ import logo from '../../img/chart-img.png'
 import styled from 'styled-components';
 import ChartComp from "../Chart/Chart";
 
-const PopupBack = styled.div`
-    
-`; 
-
 const ChartContainer = styled.div`
     width: 900px;
     height: 450px;
