@@ -15,6 +15,7 @@ class Buy extends React.Component {
             .then(result => {this.setState({price: result.profile.price})})
     }
 
+    // 'add' and 'sub' allow us to choose the amount of purchasing stocks 
     add = () => {
         if(this.state.amount < 20)
             this.setState({amount: this.state.amount+1});
@@ -23,6 +24,7 @@ class Buy extends React.Component {
         if(this.state.amount > 1)
             this.setState({amount: this.state.amount-1});
     }
+
     render(){
         const {price, amount} = this.state;
         const counter = {add: this.add, sub: this.sub, value: amount};

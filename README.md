@@ -1,6 +1,39 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+1) Instalation 
+Use `npm install` to install all required dependecied:
+    "@testing-library/jest-dom"
+    "@testing-library/react"
+    "@testing-library/user-event"
+    "antd"
+    "node-sass"
+    "react"
+    "react-dom"
+    "react-router-dom"
+    "react-scripts"
+    "styled-components"
+
+2) File system
+"src" contains all js and css/scss files
+->  "components" contains higher-order components.
+    -> "Header" shows navigation between "Account" page and "Stock" page.
+    -> "Buy" page cound be reached from "Stock" page.
+    -> "Account" page gives the user information about purchased stocks.
+    -> "Stock" page gives the user information about all available stocks.
+    -> "Loading" page appears while waiting for the server response.
+    -> "Foller" contains info about user's balance.
+->  "styledComponents" contains child components.
+    -> "AccountStockElement" contains one item with stock information displayed in the table on Account page
+    -> "componentStyle" contains styled child components.
+    -> "counterInput" allows to choose how much stock pieces the user is going to buy. Used in 'buy' page.
+    -> "Difference" is used in "AccountStockElement" to display a price changing of the user's stocks.
+    -> "Price" used in "stockElement", "AccountStockElement", "Buy" to show styled price.
+    -> "Search" filters stocks on "Stock" page.
+    -> "StockElement" contains one item with stock information displayed in the table on Stock page
+->  "data" is intended for working with data from the server.
+
+
+3) Available Scripts
 
 In the project directory, you can run:
 

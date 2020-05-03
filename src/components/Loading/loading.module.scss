@@ -11,7 +11,16 @@
         height: 80px;
         img {
             width: 100%;
-            opacity: 0.4;
+            opacity: 1;
         }
+    }
+}
+
+@keyframes round {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(-360deg);
     }
 }

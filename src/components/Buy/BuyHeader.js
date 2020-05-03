@@ -47,7 +47,7 @@ class BuyHeader extends React.Component{
                         <span>Back</span>
                     </NavLink>
                     <p className={Style.name}>
-                    <span>Buy {this.state.companyName}</span>
+                        <span>Buy {this.state.companyName}</span>
                     </p>
                     <div className={Style.cahartImgDiv}><img src={logo} alt=""  
                     style={{width: "50px", cursor: "pointer"}} 
