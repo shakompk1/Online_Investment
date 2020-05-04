@@ -1,7 +1,7 @@
 import React from 'react';
 import Style from './sell.module.scss';
 import Counter from '../../styledComponents/counterInput';
-import { getStockData } from "../../data";
+// import { getStockData } from "../../data";
 import { NavLink } from "react-router-dom";
 import Price from "../../styledComponents/Price";
 
@@ -15,6 +15,12 @@ class Sell extends React.Component {
         name: '',
         companyName: '',
     }
+
+    // componentDidMount() {
+    //     getStockData(this.props.code)
+    //         .then(result => { this.setState({ price: result.profile.price }) })
+    // }
+
     componentDidMount() {
         const { id, companyName, oldPrice, name, counter, price } = this.props.location.state;
         this.setState({
@@ -46,11 +52,11 @@ class Sell extends React.Component {
         const stock = { purchasePrice: purchasePrice, counter: counter - amount, id: id, oldPrice: oldPrice }
         return <div className={Style.buyContainer}>
             <div className={Style.price}><Price price={price} /></div>
-            <Counter {...stockLeft} />
+            <div style={{ color: "#333333" }}><Counter {...stockLeft} /></div>
             <div className={Style.amount}>
                 Sell for &nbsp; <Price price={purchasePrice.toFixed(2)} />
             </div>
-            <NavLink to="/">
+            <NavLink to="/account">
                 <button onClick={() => this.props.onClick(stock)} className={Style.buy}>Sell</button>
             </NavLink>
         </div>
