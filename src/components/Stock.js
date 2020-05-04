@@ -35,7 +35,7 @@ class Stock extends Component {
 
     getData() {
         const { keyword, data } = this.state;
-        const result = (data) ? 0 : data.filter(stock => stock.symbol.search(new RegExp(keyword, 'i')) === 0);
+        const result = data.filter(stock => stock.symbol.search(new RegExp(keyword, 'i')) === 0);
         if (result.length === 0) return false;
         return result;
     }
