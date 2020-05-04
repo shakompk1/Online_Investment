@@ -54,7 +54,6 @@ function buyStock(data, balance) {
 // 'data' should contains the object with information about the stocks,  i.e.:
 // {"code":"AAPL","amount":20,"purchasePrice":5781.4}
 function sellStock(data, balance) {
-    console.log(data, balance)
     const headers = { 'Content-type': 'application/json' }
     const currentBalance = +balance + +data.purchasePrice;
     const newPurchas = data.oldPrice * data.counter;

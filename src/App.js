@@ -27,7 +27,6 @@ class App extends Component {
 
     // CHANGES:
     sellStock = stock => {
-        console.log(this.state.balance)
         sellStock(stock, this.state.balance)
             .then(() => this.setUserData());
     }
