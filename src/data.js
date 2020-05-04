@@ -1,7 +1,16 @@
 // getting list of all stocks available for purchasing 
 function getStocks() {
     return fetch('https://financialmodelingprep.com/api/v3/company/stock/list')
-        .then(res => res.json())
+        .then(res => res.text())
+        .then(res => {
+            try {
+                return JSON.parse(res);
+            } catch (err) {
+                const lastRecStart = err.lastIndexOf('{');
+                const trimmedData = err.substr(0, lastRecStart - 2) + ']}';
+                return JSON.parse(trimmedData);
+            }
+        })
         .then(result => result.symbolsList)
         .catch(() => 'Произошла ошибка во время загрузки данных!');
 }
