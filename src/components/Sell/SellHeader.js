@@ -23,14 +23,17 @@ class SellHeader extends React.Component {
     }
 
     componentDidMount() {
-        getStockData(this.props.companyName)
-            .then(res => {
-                console.log(res);
-                this.setState({
-                    companyName: res.profile.companyName,
-                    symbol: res.symbol
-                })
-            })
+      this.setState({
+        companyName: this.props.name
+      })
+        // getStockData(this.props.companyName)
+        //     .then(res => {
+        //         console.log(res);
+        //         this.setState({
+        //             companyName: res.profile.companyName,
+        //             symbol: res.symbol
+        //         })
+        //     })
     }
 
     onClickHndlr = () => {
