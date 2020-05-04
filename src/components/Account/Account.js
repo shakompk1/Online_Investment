@@ -5,6 +5,7 @@ import AccountStock from '../../styledComponents/AccountStockElement.js';
 import {getStockData, getUserData} from "../../data";
 import {ListContainer} from "../../styledComponents/componentsStyle";
 import Loading from '../Loading/Loading.js';
+import {NavLink} from 'react-router-dom';
 
 class Account extends Component {
     state = {
@@ -47,7 +48,11 @@ class Account extends Component {
     render() {
         const {userStocks, limit, offset, loading} = this.state;
         const content = userStocks.slice(offset, offset + limit)
-                .map(stock => <BorderDiv key={stock.id}><AccountStock {...stock}/></BorderDiv>);
+        .map(stock => <BorderDiv key={stock.id}>
+                            <NavLink style={{textDecoration: 'none'}} to={"/sell/"}>
+          <AccountStock {...stock}/>
+                            </NavLink>
+        </BorderDiv>);
         return <AccountContainer>
                     {loading && <Loading />}
                     <ListContainer>{content}</ListContainer>
