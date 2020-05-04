@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Pagination } from "antd"; // see https://ant.design/components/pagination/#header too learn more
-import {BorderDiv, AccountContainer, AlignPaginator } from '../../styledComponents/componentsStyle.js'
+import { BorderDiv, AccountContainer, AlignPaginator } from '../../styledComponents/componentsStyle.js'
 import AccountStock from '../../styledComponents/AccountStockElement.js';
-import {getStockData, getUserData} from "../../data";
-import {ListContainer} from "../../styledComponents/componentsStyle";
+import { getStockData, getUserData } from "../../data";
+import { ListContainer } from "../../styledComponents/componentsStyle";
 import Loading from '../Loading/Loading.js';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Account extends Component {
     state = {
@@ -21,19 +21,19 @@ class Account extends Component {
                 return Promise.all(userData[1].map(stock => {
                     // update data about actual stock prices
                     return getStockData(stock.code).then(stockData => {
-                            stock.companyName = stockData.profile.companyName;
-                            stock.price = stockData.profile.price;
-                            const {price, purchasePrice, amount} = stock;
-                            const priceDifference = purchasePrice/amount - price;
-                            const differenceRate = (priceDifference * 100) / (purchasePrice/amount);
-                            stock.priceDifference = priceDifference.toFixed(2);
-                            stock.differenceRate = differenceRate.toFixed(2);
+                        stock.companyName = stockData.profile.companyName;
+                        stock.price = stockData.profile.price;
+                        const { price, purchasePrice, amount } = stock;
+                        const priceDifference = purchasePrice / amount - price;
+                        const differenceRate = (priceDifference * 100) / (purchasePrice / amount);
+                        stock.priceDifference = priceDifference.toFixed(2);
+                        stock.differenceRate = differenceRate.toFixed(2);
 
-                            return stock;
-                        })
+                        return stock;
+                    })
                 }))
             })
-            .then(userStocks => {this.setState({userStocks})})
+            .then(userStocks => { this.setState({ userStocks }) })
             .catch(console.log)
             .finally(() => this.setState({ loading: false })) // see https://learn.javascript.ru/try-catch for more info
     }
@@ -46,24 +46,28 @@ class Account extends Component {
     }
 
     render() {
-        const {userStocks, limit, offset, loading} = this.state;
+        const { userStocks, limit, offset, loading } = this.state
+
         const content = userStocks.slice(offset, offset + limit)
-        .map(stock => <BorderDiv key={stock.id}>
-                            <NavLink style={{textDecoration: 'none'}} to={"/sell/"}>
-          <AccountStock {...stock}/>
-                            </NavLink>
-        </BorderDiv>);
+            .map(stock => {
+                return (<BorderDiv key={stock.id}>
+                    <NavLink style={{ textDecoration: 'none' }} to={{ pathname: '../sell/Sell.js', state: { id: stock.id, name: stock.companyName, counter: stock.amount, oldPrice: +stock.price, price: +stock.price + +stock.priceDifference } }}  >
+                        <AccountStock {...stock} />
+                    </NavLink>
+                </BorderDiv >
+                )
+            });
         return <AccountContainer>
-                    {loading && <Loading />}
-                    <ListContainer>{content}</ListContainer>
-                        <AlignPaginator style={{marginTop: '25px'}}>
-                            <Pagination size="small"
-                                        total={userStocks.length}
-                                        onChange={this.onChangeHnd}
-                                        showSizeChanger={false}
-                                        defaultPageSize={limit} />
-                        </AlignPaginator>
-                </AccountContainer>
+            {loading && <Loading />}
+            <ListContainer>{content}</ListContainer>
+            <AlignPaginator style={{ marginTop: '25px' }}>
+                <Pagination size="small"
+                    total={userStocks.length}
+                    onChange={this.onChangeHnd}
+                    showSizeChanger={false}
+                    defaultPageSize={limit} />
+            </AlignPaginator>
+        </AccountContainer >
     }
 }
 
