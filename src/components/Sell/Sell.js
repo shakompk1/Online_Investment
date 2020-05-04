@@ -56,7 +56,7 @@ class Sell extends React.Component {
             <div className={Style.amount}>
                 Sell for &nbsp; <Price price={purchasePrice.toFixed(2)} />
             </div>
-            <NavLink to="/account">
+            <NavLink to="/">
                 <button onClick={() => this.props.onClick(stock)} className={Style.buy}>Sell</button>
             </NavLink>
         </div>

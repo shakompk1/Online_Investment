@@ -51,7 +51,7 @@ class Account extends Component {
         const content = userStocks.slice(offset, offset + limit)
             .map(stock => {
                 return (<BorderDiv key={stock.id}>
-                    <NavLink style={{ textDecoration: 'none' }} to={{ pathname: '/sell/sell.js' + stock.companyName, state: { id: stock.id, name: stock.companyName, counter: stock.amount, oldPrice: +stock.price, price: +stock.price + +stock.priceDifference } }}  >
+                    <NavLink style={{ textDecoration: 'none' }} to={{ pathname: '/sell/' + stock.companyName, state: { id: stock.id, name: stock.companyName, counter: stock.amount, oldPrice: +stock.price, price: +stock.price + +stock.priceDifference } }}  >
                         <AccountStock {...stock} />
                     </NavLink>
                 </BorderDiv>
