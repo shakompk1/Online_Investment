@@ -47,33 +47,6 @@ function buyStock(data, balance) {
     return Promise.all([purchaseReq, editBalance]);
 
 }
-// TODO: not quite ready, dunno how Promise works! (
-// selling the stocks.
-// 'data' should contains the object with information about the stocks,  i.e.:
-// {"code":"AAPL","amount":20,"purchasePrice":5781.4}
-function sellStock(data, balance) {
-    const headers = {'Content-type': 'application/json'}
-    const currentBalance = balance + data.purchasePrice;
-
-    const purchaseReq = fetch('https://5e8da89e22d8cd0016a798db.mockapi.io/users/3/stocks', {
-        method: 'POST',
-        headers,
-        body: JSON.stringify(data),
-    })
-        .then(res => res.json())
-        .catch(() => 'Произошла ошибка при загрузке данных на сервер');
-
-    const editBalance = fetch('https://5e8da89e22d8cd0016a798db.mockapi.io/users/3', {
-        method: 'PUT',
-        headers,
-        body: JSON.stringify({currentBalance})
-    })
-        .then(res => res.json())
-        .catch(() => 'Произошла ошибка во время загрузки данных на сервер');
-
-    return Promise.all([purchaseReq, editBalance]);
-
-}
 
 // Getting information about stock data
 function getStockData(code){
@@ -99,4 +72,4 @@ function deleteData(){
         }))).then(res => res)
 }
 
-export {getUserData, buyStock, getStocks, getStockData, deleteData, sellStock};
+export {getUserData, buyStock, getStocks, getStockData, deleteData};
